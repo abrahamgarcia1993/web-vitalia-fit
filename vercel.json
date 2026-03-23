@@ -1,16 +1,28 @@
 {
   "functions": {
     "api/index.js": {
-      "includeFiles": "data/**/*.json"
+      "includeFiles": [
+        "data/**/*.json",
+        "*.html",
+        "articulos/**/*.html"
+      ]
     }
   },
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/paginadesalud.html"
+      "source": "/api/:path*",
+      "destination": "/api/index"
     },
     {
-      "source": "/api/:path*",
+      "source": "/articulos/:path*",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/:page*.html",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/",
       "destination": "/api/index"
     }
   ]
