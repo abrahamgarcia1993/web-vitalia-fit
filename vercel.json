@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{*.html,articulos/**/*.html,data/**/*.json}"
+    }
+  },
   "routes": [
     {
       "src": "^/(.*)$",

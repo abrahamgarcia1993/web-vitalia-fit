@@ -987,7 +987,7 @@ app.get("/", (req, res) => {
   res.sendFile(indexFile);
 });
 
-app.get("*.html", (req, res) => {
+app.get(/^\/.*\.html$/, (req, res) => {
   const file = resolvePublicFile(req.path);
   if (!file) {
     return res.status(404).send("Pagina no encontrada.");
