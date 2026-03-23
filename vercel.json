@@ -1,13 +1,17 @@
 {
   "functions": {
     "api/index.js": {
-      "includeFiles": "{*.html,articulos/**/*.html,data/**/*.json}"
+      "includeFiles": "data/**/*.json"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/(.*)$",
-      "dest": "/api/index.js"
+      "source": "/",
+      "destination": "/paginadesalud.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index"
     }
   ]
 }
