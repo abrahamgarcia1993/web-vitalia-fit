@@ -6,12 +6,14 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 
 const app = express();
+const IS_VERCEL = process.env.VERCEL === "1";
 const PORT = Number(process.env.PORT || 3000);
 const ADMIN_KEY = String(process.env.ADMIN_KEY || "").trim();
-const ADMIN_ALLOW_REMOTE = String(process.env.ADMIN_ALLOW_REMOTE || "false").toLowerCase() === "true";
+const ADMIN_ALLOW_REMOTE = String(process.env.ADMIN_ALLOW_REMOTE || (IS_VERCEL ? "true" : "false")).toLowerCase() === "true";
 const ADMIN_MAX_ATTEMPTS = Number(process.env.ADMIN_MAX_ATTEMPTS || 5);
 const ADMIN_LOCK_MINUTES = Number(process.env.ADMIN_LOCK_MINUTES || 10);
-const DATA_DIR = path.join(__dirname, "data");
+const STATIC_DATA_DIR = path.join(__dirname, "data");
+const DATA_DIR = IS_VERCEL ? path.join("/tmp", "vitalia-data") : STATIC_DATA_DIR;
 const APPOINTMENTS_FILE = path.join(DATA_DIR, "appointments.json");
 const OFF_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
 const adminAttemptTracker = new Map();
@@ -71,12 +73,19 @@ async function ensureAppointmentsStore() {
   try {
     await fs.promises.access(APPOINTMENTS_FILE, fs.constants.F_OK);
   } catch {
-    await fs.promises.writeFile(APPOINTMENTS_FILE, "[]", "utf8");
+    // Bootstrap with bundled data when available; fallback to empty array.
+    const bundledAppointmentsFile = path.join(STATIC_DATA_DIR, "appointments.json");
+    try {
+      const bundledRaw = await fs.promises.readFile(bundledAppointmentsFile, "utf8");
+      await fs.promises.writeFile(APPOINTMENTS_FILE, bundledRaw, "utf8");
+    } catch {
+      await fs.promises.writeFile(APPOINTMENTS_FILE, "[]", "utf8");
+    }
   }
 }
 
 async function loadLocalFoodsDatabase() {
-  const FOODS_DB_FILE = path.join(DATA_DIR, "foods-database.json");
+  const FOODS_DB_FILE = path.join(STATIC_DATA_DIR, "foods-database.json");
   try {
     const raw = await fs.promises.readFile(FOODS_DB_FILE, "utf8");
     const data = JSON.parse(raw);
@@ -702,14 +711,8 @@ app.post("/api/appointments", async (req, res) => {
     return res.status(400).json({ message: "Solo puedes reservar citas futuras." });
   }
 
-  const mailSettings = getMailSettings();
-  if (!mailSettings) {
-    return res.status(500).json({
-      message: "El servidor no tiene configurado SMTP todavia."
-    });
-  }
-
   try {
+    const mailSettings = getMailSettings();
     const appointments = await readAppointments();
     const exists = appointments.some((item) => item.fecha === fecha && item.hora === hora);
     if (exists) {
@@ -737,30 +740,36 @@ app.post("/api/appointments", async (req, res) => {
     const safeHora = escapeHtml(hora);
     const safeMensaje = escapeHtml(mensaje || "Sin mensaje adicional").replace(/\n/g, "<br>");
 
-    await mailSettings.transporter.sendMail({
-      from: mailSettings.from,
-      to: mailSettings.to,
-      replyTo: email,
-      subject: `Nueva cita reservada - ${safeNombre} (${safeFecha} ${safeHora})`,
-      text:
-        `Nueva cita reservada\n\n` +
-        `Nombre: ${nombre}\n` +
-        `Email: ${email}\n` +
-        `Telefono: ${telefono || "No indicado"}\n` +
-        `Fecha: ${fecha}\n` +
-        `Hora: ${hora}\n\n` +
-        `Mensaje:\n${mensaje || "Sin mensaje adicional"}`,
-      html:
-        `<h2>Nueva cita reservada</h2>` +
-        `<p><strong>Nombre:</strong> ${safeNombre}</p>` +
-        `<p><strong>Email:</strong> ${safeEmail}</p>` +
-        `<p><strong>Telefono:</strong> ${safeTelefono}</p>` +
-        `<p><strong>Fecha:</strong> ${safeFecha}</p>` +
-        `<p><strong>Hora:</strong> ${safeHora}</p>` +
-        `<p><strong>Mensaje:</strong><br>${safeMensaje}</p>`
-    });
+    if (mailSettings) {
+      await mailSettings.transporter.sendMail({
+        from: mailSettings.from,
+        to: mailSettings.to,
+        replyTo: email,
+        subject: `Nueva cita reservada - ${safeNombre} (${safeFecha} ${safeHora})`,
+        text:
+          `Nueva cita reservada\n\n` +
+          `Nombre: ${nombre}\n` +
+          `Email: ${email}\n` +
+          `Telefono: ${telefono || "No indicado"}\n` +
+          `Fecha: ${fecha}\n` +
+          `Hora: ${hora}\n\n` +
+          `Mensaje:\n${mensaje || "Sin mensaje adicional"}`,
+        html:
+          `<h2>Nueva cita reservada</h2>` +
+          `<p><strong>Nombre:</strong> ${safeNombre}</p>` +
+          `<p><strong>Email:</strong> ${safeEmail}</p>` +
+          `<p><strong>Telefono:</strong> ${safeTelefono}</p>` +
+          `<p><strong>Fecha:</strong> ${safeFecha}</p>` +
+          `<p><strong>Hora:</strong> ${safeHora}</p>` +
+          `<p><strong>Mensaje:</strong><br>${safeMensaje}</p>`
+      });
+      return res.status(201).json({ message: "Cita reservada correctamente.", booking });
+    }
 
-    return res.status(201).json({ message: "Cita reservada correctamente.", booking });
+    return res.status(201).json({
+      message: "Cita reservada correctamente (sin notificacion por email).",
+      booking
+    });
   } catch (error) {
     console.error("Error guardando cita:", error);
     return res.status(500).json({ message: "No se pudo guardar la cita en este momento." });
