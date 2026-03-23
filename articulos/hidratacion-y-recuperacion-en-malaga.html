@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pautas de Hidratación y Recuperación Adaptadas al Clima de Málaga</title>
+  <meta name="description" content="Guía de hidratación y recuperación específica para el clima cálido de Málaga. Consejos para entrenar en calor y mantener rendimiento.">
+  <meta name="keywords" content="hidratación, clima Málaga, recuperación, calor, entrenar en verano, Málaga">
+  <meta name="author" content="Vitalia Fit">
+  <meta property="og:title" content="Hidratación y Recuperación en Málaga">
+  <meta property="og:description" content="Cómo mantenerse hidratado y recuperarse bien en el clima de Málaga.">
+  <meta property="og:type" content="article">
+  <style>
+    :root {
+      --bg: #090b10;
+      --text: #f1f4fa;
+      --text-soft: #b2bdd0;
+      --accent: #00d084;
+      --accent-2: #ff8a26;
+      --danger: #ff5b5b;
+      --line: #2c364d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 500px at 80% -12%, rgba(0, 208, 132, 0.12), transparent 60%),
+        radial-gradient(900px 420px at 0% 0%, rgba(255, 138, 38, 0.1), transparent 58%),
+        var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(18, 23, 35, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    
+    header {
+      background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(255, 138, 38, 0.1));
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    header p {
+      font-size: 1.1em;
+      color: var(--text-soft);
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .intro {
+      background: rgba(0, 208, 132, 0.08);
+      padding: 25px;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 40px;
+      border-radius: 5px;
+      border: 1px solid var(--line);
+    }
+    
+    .intro p {
+      font-size: 1.05em;
+      color: var(--text-soft);
+    }
+    
+    h2 {
+      color: var(--accent);
+      margin-top: 35px;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      border-bottom: 3px solid var(--accent-2);
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: var(--accent-2);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    
+    .section {
+      margin-bottom: 35px;
+    }
+    
+    .section p {
+      margin-bottom: 12px;
+      color: var(--text-soft);
+      text-align: justify;
+    }
+    
+    .tips-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .tips-list li {
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      background: rgba(22, 28, 41, 0.8);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      transition: transform 0.2s;
+      border: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    .tips-list li:hover {
+      transform: translateX(5px);
+      background: rgba(22, 28, 41, 0.95);
+      border-left-color: var(--accent-2);
+    }
+    
+    .tips-list strong {
+      color: var(--accent);
+    }
+    
+    .highlight {
+      background: rgba(255, 138, 38, 0.12);
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border-left: 4px solid var(--accent-2);
+      border: 1px solid rgba(255, 138, 38, 0.35);
+      color: #ffd8b8;
+    }
+    
+    .success {
+      background: rgba(0, 208, 132, 0.12);
+      border-left: 4px solid var(--accent);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 208, 132, 0.35);
+      color: #8ff8cb;
+    }
+    
+    .warning {
+      background: rgba(255, 91, 91, 0.12);
+      border-left: 4px solid var(--danger);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 91, 91, 0.35);
+      color: #ff9e9e;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    table th {
+      background: rgba(0, 208, 132, 0.15);
+      color: #8ff8cb;
+      padding: 12px;
+      text-align: left;
+      border: 1px solid var(--line);
+    }
+    
+    table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    table tr:hover {
+      background: rgba(0, 208, 132, 0.08);
+    }
+    
+    footer {
+      background: rgba(22, 28, 41, 0.8);
+      padding: 30px;
+      text-align: center;
+      color: var(--text-soft);
+      border-top: 1px solid var(--line);
+      font-size: 0.9em;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back-link:hover {
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="../paginadesalud.html" class="back-link">← Volver a inicio</a>
+      <h1>💧 Hidratación y Recuperación en Málaga</h1>
+      <p>Pautas adaptadas al clima cálido para rendimiento óptimo</p>
+    </header>
+    
+    <div class="content">
+      <div class="intro">
+        <p>
+          Málaga tiene un clima mediterráneo: 300+ días de sol, temperaturas que alcanzan 35-40°C en verano, 
+          y baja humedad relativa. Entrenar en este clima requiere estrategias específicas de hidratación y recuperación 
+          que van más allá de beber agua. Esta guía está diseñada especialmente para quien entrena en Málaga.
+        </p>
+      </div>
+      
+      <div class="section">
+        <h2>1. Características del Clima de Málaga y Su Impacto en Entrenamiento</h2>
+        <p>
+          Entender el clima es clave para adaptarse correctamente.
+        </p>
+        
+        <h3>Desafíos principales:</h3>
+        <ul class="tips-list">
+          <li><strong>Calor intenso (mayo-septiembre):</strong> Pérdida de líquidos acelerada, sobrecalentamiento muscular.</li>
+          <li><strong>Baja humedad:</strong> Evaporación rápida de sudor, falsa sensación de que "no sudas".</li>
+          <li><strong>Radiación solar directa:</strong> Entrenar al aire libre requiere protección extra.</li>
+          <li><strong>Viento sobre la costa:</strong> Acelera deshidratación incluso cuando te sientes "fresco".</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>2. Cálculo de Pérdida de Líquidos Personalizado</h2>
+        <p>
+          Cada persona suda diferente. Calcula tu tasa personal.
+        </p>
+        
+        <h3>Cómo hacerlo (test simple):</h3>
+        <ol class="tips-list">
+          <li><strong>Paso 1:</strong> Pésate sin ropa antes de entrenar (en casa).</li>
+          <li><strong>Paso 2:</strong> Entrena 1 hora en condiciones típicas (tu clima, horario normal).</li>
+          <li><strong>Paso 3:</strong> Vuelve a pesarte sin ropa (sin secarte, con sudor).</li>
+          <li><strong>Paso 4:</strong> Diferencia = litros perdidos en 1 hora.</li>
+        </ol>
+        
+        <h3>Ejemplo:</h3>
+        <div class="highlight">
+          <strong>Pesada inicial:</strong> 75 kg<br>
+          <strong>Pesada final:</strong> 73.5 kg<br>
+          <strong>Diferencia:</strong> 1.5 kg = 1.5 litros de sudor en 1 hora<br>
+          <strong>Meta de hidratación:</strong> 1.5 + 25% = 1.875 litros durante la sesión
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>3. Estrategia de Hidratación Específica para Málaga</h2>
+        <p>
+          No todos los líquidos son iguales. Aquí está la estrategia completa.
+        </p>
+        
+        <h3>Hidratación Pre-Entrenamiento (2-3 horas antes):</h3>
+        <ul class="tips-list">
+          <li><strong>Agua:</strong> 500 ml de agua filtrada o destilada.</li>
+          <li><strong>Electrolitos:</strong> Añade ½ cucharadita de sal marina si hace mucho calor (>32°C).</li>
+          <li><strong>Carbohidratos:</strong> Snack pequeño (plátano, tostadas) si será sesión de +45 min.</li>
+          <li><strong>Evita cafeína 2 horas antes:</strong> Aumenta deshidratación en Málaga.</li>
+        </ul>
+        
+        <h3>Hidratación Durante Entrenamiento:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Duración</th>
+              <th>Cantidad de Agua</th>
+              <th>Electrolitos</th>
+              <th>Carbohidratos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&lt;30 min</td>
+              <td>100-150 ml cada 15 min</td>
+              <td>No necesario</td>
+              <td>No necesario</td>
+            </tr>
+            <tr>
+              <td>30-60 min</td>
+              <td>200-250 ml cada 15-20 min</td>
+              <td>30-60 mg Na+ por 500ml</td>
+              <td>No necesario</td>
+            </tr>
+            <tr>
+              <td>60-90 min</td>
+              <td>250-300 ml cada 20 min</td>
+              <td>60-100 mg Na+ por 500ml</td>
+              <td>6-8g carbos por hora</td>
+            </tr>
+            <tr>
+              <td>&gt;90 min</td>
+              <td>300-400 ml cada 20 min</td>
+              <td>100-150 mg Na+ por 500ml</td>
+              <td>30-60g carbos por hora</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="success">
+          <strong>✓ Bebida ideal para Málaga (DIY):</strong><br>
+          • 500 ml agua filtrada<br>
+          • 1 cucharadita sal marina (250 mg sodio)<br>
+          • 30g carbohidratos (zumo limón, miel, o Gatorade)<br>
+          • Opcional: limón fresco (electrolitos naturales)
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>4. Hidratación Post-Entrenamiento (Ventana Crítica)</h2>
+        <p>
+          Los primeros 30-60 minutos post-entrenamiento son cruciales para recuperación.
+        </p>
+        
+        <h3>Protocolo post-entreno:</h3>
+        <ul class="tips-list">
+          <li><strong>Minutos 0-15:</strong> 250 ml de bebida con electrolitos y carbos (no pura agua).</li>
+          <li><strong>Minutos 15-45:</strong> Proteína + carbohidratos (batido, pollo con arroz, huevo con pan).</li>
+          <li><strong>1-2 horas post:</strong> Otros 250-500 ml de agua, continuamente.</li>
+          <li><strong>Continúa hidratándote:</strong> Pequeños sorbos frecuentes es mejor que grandes volúmenes.</li>
+        </ul>
+        
+        <div class="warning">
+          <strong>⚠️ Error común:</strong> Beber solo agua post-entreno en clima cálido. 
+          Sin electrolitos, el cuerpo expulsa agua por orina sin retenerla. Necesitas sodio.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>5. Recuperación Más Allá de la Hidratación</h2>
+        <p>
+          La hidratación es solo parte. En Málaga, la recuperación requiere más.
+        </p>
+        
+        <h3>Sueño:</h3>
+        <ul class="tips-list">
+          <li><strong>En verano, el calor interfiere con sueño.</strong> Usa aire acondicionado o ventilador.</li>
+          <li><strong>Duerme 7-9 horas:</strong> En clima cálido, necesitas más descanso.</li>
+          <li><strong>Hidrato nocturnamente:</strong> Botella de agua en mesilla, bebe si despiertas sediento.</li>
+        </ul>
+        
+        <h3>Nutrición:</h3>
+        <ul class="tips-list">
+          <li><strong>Proteína post-entreno:</strong> 25-35g en primeras 2 horas (crítico para síntesis muscular).</li>
+          <li><strong>Carbohidratos estratégicos:</strong> Más carbos después de entrenamientos intensos.</li>
+          <li><strong>Ácidos grasos omega-3:</strong> Reduce inflamación causada por calor (pescado, frutos secos).</li>
+          <li><strong>Micronutrientes:</strong> Verdura variada, frutas locales de Málaga (naranjas, plátanos).</li>
+        </ul>
+        
+        <h3>Descanso Activo y Movilidad:</h3>
+        <ul class="tips-list">
+          <li><strong>Camina 10-15 minutos post-entreno:</strong> Reduce DOMS (agujetas) y acelera recuperación.</li>
+          <li><strong>Estiramientos pasivos en lugar fresco:</strong> Mejora flexibilidad sin adicionar calor corporal.</li>
+          <li><strong>Baño frío o ducha templada:</strong> Reduce temperatura corporal y inflamación (máximo 5 minutos).</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>6. Entrenamiento en Diferentes Épocas de Málaga</h2>
+        <p>
+          Las estrategias varían según la estación.
+        </p>
+        
+        <h3>Primavera (Abril-Mayo):</h3>
+        <ul class="tips-list">
+          <li>Clima ideal. Aumenta volumen de entrenamiento.</li>
+          <li>Hidratación: 1-1.5 litros/hora.</li>
+          <li>Horario flexible: mañana o tarde.</li>
+        </ul>
+        
+        <h3>Verano (Junio-Agosto):</h3>
+        <ul class="tips-list">
+          <li>Calor extremo. Entrena temprano (6-8 AM) o tardío (19-21 h).</li>
+          <li>Hidratación máxima: 1.5-2 litros/hora.</li>
+          <li>Reduce intensidad, mantén volumen. Prioriza técnica, no peso.</li>
+          <li>Pausa más larga en horas pico (13-17 h).</li>
+        </ul>
+        
+        <h3>Otoño (Septiembre-Octubre):</h3>
+        <ul class="tips-list">
+          <li>Clima mejorando. Vuelve a intensidad normal.</li>
+          <li>Hidratación: 1-1.5 litros/hora.</li>
+          <li>Aprovecha para construir fuerza.</li>
+        </ul>
+        
+        <h3>Invierno (Noviembre-Marzo):</h3>
+        <ul class="tips-list">
+          <li>Clima suave. Mejor para PR y picos de rendimiento.</li>
+          <li>Hidratación: 0.5-1 litro/hora.</li>
+          <li>Ideal para cambios serios de composición corporal.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>7. Señales de Deshidratación en Málaga</h2>
+        <p>
+          Reconoce las advertencias temprano.
+        </p>
+        
+        <ul class="tips-list">
+          <li><strong>Sed intensa:</strong> Ya estás deshidratado. Bebe ANTES de sentir sed.</li>
+          <li><strong>Orina oscura:</strong> Oscura = deshidratación. Debe ser amarilla clara.</li>
+          <li><strong>Mareos o confusión:</strong> Stop inmediato. Descansa a la sombra + agua + electrolitos.</li>
+          <li><strong>Falta de sudor (¡peligroso!):</strong> En calor extremo, puede fallar sistema de enfriamiento. Descansa urgente.</li>
+          <li><strong>Pérdida de rendimiento sin razón:</strong> Probable causa: deshidratación crónica. Aumenta consumo diario.</li>
+        </ul>
+        
+        <div class="success">
+          <strong>✓ Tu checklist de hidratación diaria en Málaga:</strong><br>
+          • 2-3 litros de agua base (sin ejercicio)<br>
+          • +0.5-2 litros según duración/intensidad entrenamiento<br>
+          • Electrolitos post-entreno (sodio, potasio)<br>
+          • Orina clara/amarilla pálida<br>
+          • Peso corporal estable (variaciones &lt;1% día a día)
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>8. Horarios de Entrenamiento Recomendados por Mes</h2>
+        <p>
+          Cuándo entrenar para máximo rendimiento en Málaga.
+        </p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Mes</th>
+              <th>Temperatura Media</th>
+              <th>Horario Óptimo</th>
+              <th>Intensidad Recomendada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Enero-Febrero</td>
+              <td>13-17°C</td>
+              <td>10-16h (cualquier hora)</td>
+              <td>100% (alta intensidad OK)</td>
+            </tr>
+            <tr>
+              <td>Marzo-Abril</td>
+              <td>18-24°C</td>
+              <td>8-18h (flexible)</td>
+              <td>100% (construye fuerza)</td>
+            </tr>
+            <tr>
+              <td>Mayo</td>
+              <td>25-28°C</td>
+              <td>7-9h o 19-21h</td>
+              <td>90% (comienza a reducir)</td>
+            </tr>
+            <tr>
+              <td>Junio-Agosto</td>
+              <td>32-38°C</td>
+              <td>6-8h o 20-22h</td>
+              <td>70-80% (mantén técnica)</td>
+            </tr>
+            <tr>
+              <td>Septiembre</td>
+              <td>28-30°C</td>
+              <td>7-10h o 19-21h</td>
+              <td>85% (sube gradualmente)</td>
+            </tr>
+            <tr>
+              <td>Octubre-Noviembre</td>
+              <td>20-25°C</td>
+              <td>8-18h (flexible)</td>
+              <td>100% (constructivo)</td>
+            </tr>
+            <tr>
+              <td>Diciembre</td>
+              <td>15-18°C</td>
+              <td>10-15h</td>
+              <td>100% (picos de fuerza)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="section">
+        <h2>Conclusión: Hidratación + Recuperación = Progreso</h2>
+        <p>
+          En Málaga, el clima es un factor más de entrenamiento. Dominarlo significa mejores resultados, 
+          menos lesiones y consistencia real.
+        </p>
+        
+        <div class="highlight">
+          <strong>🎯 Tu plan de acción hoy:</strong><br>
+          1. Calcula tu pérdida de sudor (realiza el test)<br>
+          2. Prepara tu bebida electrolítica casera<br>
+          3. Ajusta horario de entrenamiento según mes<br>
+          4. Usa termómetro: entrena cuando temperatura &lt;35°C o temprano/tarde<br>
+          5. Monitorea orina (debe ser clara) y peso corporal
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p><strong>Nota especial Málaga:</strong> Si entrenas en playas como El Palo o Rincon de la Victoria, 
+      el calor + brisa marina acelera deshidratación. Aumenta ingesta 25-30%.</p>
+      <p>© 2026 - Vitalia Fit | Especializado para Málaga | Creado con ❤️ para tu bienestar</p>
+    </footer>
+  </div>
+</body>
+</html>

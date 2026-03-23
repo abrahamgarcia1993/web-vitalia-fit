@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Privado Citas | Vitalia Fit</title>
+  <style>
+    :root {
+      --bg: #0b0f18;
+      --panel: #161f33;
+      --line: #32476f;
+      --text: #eef3ff;
+      --soft: #9fb1d4;
+      --ok: #2bcf8d;
+      --error: #ff7c7c;
+      --danger: #ff5454;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Montserrat", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 90% -10%, rgba(43, 207, 141, 0.16), transparent 60%),
+        radial-gradient(800px 380px at 0% 0%, rgba(255, 84, 84, 0.13), transparent 58%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(980px, calc(100% - 1.4rem));
+      margin: 0 auto;
+      padding: 1.4rem 0 2rem;
+    }
+
+    h1 {
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .sub {
+      margin: 0 0 1.2rem;
+      color: var(--soft);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .panel {
+      background: linear-gradient(155deg, rgba(22, 31, 51, 0.96), rgba(14, 20, 35, 0.96));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #dce7ff;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #3c5480;
+      border-radius: 10px;
+      padding: 0.72rem;
+      font: inherit;
+      color: var(--text);
+      background: #0f1627;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-width: 170px;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #2bcf8d 0%, #22a674 100%);
+      color: #03150e;
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #ff6f6f 0%, #cf3d3d 100%);
+      color: #fff;
+      min-width: 150px;
+    }
+
+    .status {
+      min-height: 1.2rem;
+      margin: 0.6rem 0 0.3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #d3def8;
+    }
+
+    .status.ok {
+      color: var(--ok);
+    }
+
+    .status.error {
+      color: var(--error);
+    }
+
+    .list {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .item {
+      border: 1px solid #455f91;
+      border-radius: 12px;
+      background: rgba(13, 20, 34, 0.92);
+      padding: 0.8rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .meta {
+      margin: 0;
+      white-space: pre-line;
+      color: #dbe6ff;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .empty {
+      text-align: center;
+      color: #b6c6e7;
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
+    }
+
+    @media (min-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Acceso Privado de Citas</h1>
+    <p class="sub">Introduce tu clave de administrador para ver y cancelar reservas.</p>
+
+    <section class="panel">
+      <form id="adminForm" class="grid" novalidate>
+        <div>
+          <label for="adminKey">Clave de administrador</label>
+          <input id="adminKey" name="adminKey" type="password" autocomplete="current-password" required>
+        </div>
+        <button id="adminLoad" class="btn btn-main" type="submit">Entrar</button>
+      </form>
+      <div class="actions" style="margin-top:0.6rem;">
+        <button id="logoutBtn" class="btn btn-danger" type="button">Desloguearme</button>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div id="list" class="list"></div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const form = document.getElementById("adminForm");
+      const keyInput = document.getElementById("adminKey");
+      const loadBtn = document.getElementById("adminLoad");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const statusEl = document.getElementById("status");
+      const listEl = document.getElementById("list");
+
+      let adminKey = "";
+
+      function setStatus(message, type) {
+        statusEl.textContent = message || "";
+        statusEl.className = type ? `status ${type}` : "status";
+      }
+
+      function renderList(appointments) {
+        listEl.innerHTML = "";
+
+        if (!appointments || appointments.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "empty";
+          empty.textContent = "No hay citas pendientes.";
+          listEl.appendChild(empty);
+          return;
+        }
+
+        appointments.forEach(function (item) {
+          const card = document.createElement("article");
+          card.className = "item";
+
+          const meta = document.createElement("p");
+          meta.className = "meta";
+          meta.textContent =
+            `${item.nombre}\n` +
+            `Fecha: ${item.fecha} ${item.hora}\n` +
+            `Email: ${item.email}\n` +
+            `Telefono: ${item.telefono || "No indicado"}\n` +
+            `Mensaje: ${item.mensaje || "Sin mensaje"}`;
+
+          const actions = document.createElement("div");
+          actions.className = "actions";
+
+          const cancelBtn = document.createElement("button");
+          cancelBtn.type = "button";
+          cancelBtn.className = "btn btn-danger";
+          cancelBtn.textContent = "Cancelar cita";
+          cancelBtn.addEventListener("click", async function () {
+            cancelBtn.disabled = true;
+            cancelBtn.textContent = "Cancelando...";
+
+            try {
+              const response = await fetch(`/api/admin/appointments/${encodeURIComponent(item.id)}`, {
+                method: "DELETE",
+                headers: { "x-admin-key": adminKey }
+              });
+
+              const result = await response.json().catch(function () {
+                return { message: "No se pudo procesar la respuesta." };
+              });
+
+              if (!response.ok) {
+                throw new Error(result.message || "No se pudo cancelar la cita.");
+              }
+
+              setStatus(result.message || "Cita cancelada.", "ok");
+              await loadAppointments();
+            } catch (error) {
+              setStatus(error.message || "Error cancelando cita.", "error");
+              cancelBtn.disabled = false;
+              cancelBtn.textContent = "Cancelar cita";
+            }
+          });
+
+          actions.appendChild(cancelBtn);
+          card.appendChild(meta);
+          card.appendChild(actions);
+          listEl.appendChild(card);
+        });
+      }
+
+      async function loadAppointments() {
+        if (!adminKey) {
+          setStatus("Escribe la clave de administrador.", "error");
+          return;
+        }
+
+        const response = await fetch("/api/admin/appointments", {
+          method: "GET",
+          headers: { "x-admin-key": adminKey }
+        });
+
+        const result = await response.json().catch(function () {
+          return { appointments: [] };
+        });
+
+        if (!response.ok) {
+          throw new Error(result.message || "No se pudo cargar la lista de citas.");
+        }
+
+        renderList(result.appointments || []);
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const key = (keyInput.value || "").trim();
+
+        if (!key) {
+          setStatus("Escribe la clave de administrador.", "error");
+          return;
+        }
+
+        adminKey = key;
+        loadBtn.disabled = true;
+        loadBtn.textContent = "Cargando...";
+        setStatus("", "");
+
+        try {
+          await loadAppointments();
+          setStatus("Panel cargado correctamente.", "ok");
+        } catch (error) {
+          renderList([]);
+          setStatus(error.message || "No autorizado.", "error");
+        } finally {
+          loadBtn.disabled = false;
+          loadBtn.textContent = "Entrar";
+        }
+      });
+
+      logoutBtn.addEventListener("click", function () {
+        adminKey = "";
+        keyInput.value = "";
+        listEl.innerHTML = "";
+        setStatus("Sesion de administrador cerrada.", "ok");
+      });
+    })();
+  </script>
+</body>
+</html>

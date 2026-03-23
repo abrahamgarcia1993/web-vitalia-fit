@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intercambio de Alimentos | Vitalia Fit Malaga</title>
+  <meta name="description" content="Herramienta para sustituir un alimento por otro con equivalencia nutricional aproximada en gramos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b10;
+      --panel: #141b2a;
+      --line: #32425f;
+      --text: #f1f4fa;
+      --soft: #aab7cf;
+      --ok: #00d084;
+      --warn: #ff8a26;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 440px at 95% -8%, rgba(0, 208, 132, 0.14), transparent 60%),
+        radial-gradient(760px 380px at 0% 0%, rgba(255, 138, 38, 0.12), transparent 56%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(980px, calc(100% - 1.4rem));
+      margin: 0 auto;
+      padding: 1.2rem 0 2rem;
+    }
+
+    .top-link {
+      color: #c0d2f2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0.8rem 0 0.45rem;
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      font-size: clamp(1.7rem, 6vw, 2.8rem);
+      text-align: center;
+    }
+
+    .sub {
+      margin: 0 0 1rem;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(158deg, rgba(20, 27, 42, 0.95), rgba(12, 18, 30, 0.95));
+      padding: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #dbe5f8;
+      text-align: center;
+    }
+
+    select,
+    input {
+      width: 100%;
+      border: 1px solid #374c70;
+      border-radius: 10px;
+      padding: 0.72rem;
+      font: inherit;
+      color: var(--text);
+      background: #0f1523;
+      text-align: center;
+    }
+
+    input[list] {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[list]::-webkit-calendar-picker-indicator {
+      display: none !important;
+      opacity: 0;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 0.78rem 1rem;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      min-width: 230px;
+      background: linear-gradient(135deg, var(--ok), #00a96c);
+      color: #07120d;
+    }
+
+    .status {
+      margin-top: 0.65rem;
+      min-height: 1.2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #c8d6ee;
+    }
+
+    .status.ok { color: #8ff8cb; }
+    .status.error { color: #ffb2b2; }
+
+    .result {
+      margin-top: 0.7rem;
+      border: 1px dashed #42567c;
+      border-radius: 12px;
+      padding: 0.85rem;
+      min-height: 2.4rem;
+      color: #d2def4;
+      text-align: center;
+      white-space: pre-line;
+      line-height: 1.5;
+      font-size: 0.93rem;
+    }
+
+    .alternative-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .btn-nav {
+      border: 0;
+      border-radius: 8px;
+      padding: 0.6rem 0.9rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, #374c70, #556b8e);
+      color: #dbe5f8;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav:hover {
+      background: linear-gradient(135deg, #4a5f86, #6b7fa0);
+      transform: scale(1.05);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .hint {
+      margin-top: 0.6rem;
+      text-align: center;
+      color: #f2c59d;
+      font-size: 0.82rem;
+    }
+
+    @media (min-width: 760px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="top-link" href="paginadesalud.html">Volver a pagina principal</a>
+    <h1>Intercambio Nutricional</h1>
+    <p class="sub">Indica el alimento que quieres sustituir y la cantidad. La herramienta te devuelve una alternativa con gramos equivalentes.</p>
+
+    <section class="panel">
+      <form id="toolForm" class="grid" novalidate>
+        <div>
+          <label for="sourceFood">Alimento a sustituir</label>
+            <input id="sourceFood" name="sourceFood" type="text" list="foodsList" placeholder="Introduce el alimento" required>
+          <datalist id="foodsList"></datalist>
+        </div>
+        <div>
+          <label for="sourceGrams">Cantidad (gramos)</label>
+          <input id="sourceGrams" name="sourceGrams" type="number" min="1" step="1" value="150" required>
+        </div>
+        <div class="full actions">
+          <button class="btn" type="submit">Buscar alternativa</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div id="result" class="result">Completa los campos para calcular un intercambio.</div>
+      <div id="alternativeNav" class="alternative-nav" style="display:none; margin-top: 0.8rem; text-align: center; gap: 0.5rem;">
+        <button id="prevBtn" type="button" class="btn-nav">← Anterior</button>
+        <span id="altCounter" style="color: #c8d6ee; font-size: 0.9rem;"></span>
+        <button id="nextBtn" type="button" class="btn-nav">Siguiente →</button>
+      </div>
+      <p class="hint">Nota: equivalencia aproximada en base a kcal, proteina, carbohidratos y grasas por 100 g.</p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const sourceFood = document.getElementById("sourceFood");
+      const sourceGrams = document.getElementById("sourceGrams");
+      const form = document.getElementById("toolForm");
+      const status = document.getElementById("status");
+      const result = document.getElementById("result");
+      const foodsList = document.getElementById("foodsList");
+      const alternativeNav = document.getElementById("alternativeNav");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const altCounter = document.getElementById("altCounter");
+
+      let currentAlternatives = [];
+      let currentRequest = null;
+      let currentIndex = 0;
+
+      function setStatus(msg, kind) {
+        status.textContent = msg || "";
+        status.className = kind ? `status ${kind}` : "status";
+      }
+
+      function displayAlternative(index) {
+        if (currentAlternatives.length === 0 || !currentRequest) return;
+        currentIndex = Math.max(0, Math.min(index, currentAlternatives.length - 1));
+        const alt = currentAlternatives[currentIndex];
+
+        result.textContent =
+          `Sustitucion recomendada:\n` +
+          `${currentRequest.grams} g de ${currentRequest.food} -> ${alt.grams} g de ${alt.food}\n` +
+          `Similitud nutricional aproximada: ${alt.nutritionalSimilarityApprox}%`;
+
+        altCounter.textContent = `${currentIndex + 1} / ${currentAlternatives.length}`;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === currentAlternatives.length - 1;
+
+        if (currentAlternatives.length > 1) {
+          alternativeNav.style.display = "flex";
+        } else {
+          alternativeNav.style.display = "none";
+        }
+      }
+
+      const suggestedFoods = [
+        "Arroz cocido",
+        "Pechuga de pollo",
+        "Pasta cocida",
+        "Patata cocida",
+        "Kale crudo",
+        "Yogur griego natural",
+        "Atun al natural",
+        "Aguacate",
+        "Pan integral"
+      ];
+      foodsList.innerHTML = suggestedFoods.map(function (name) {
+        return `<option value="${name}"></option>`;
+      }).join("");
+      sourceFood.value = "Arroz cocido";
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const searchedFood = (sourceFood.value || "").toString().trim();
+        const grams = Number((sourceGrams.value || "").toString().replace(",", "."));
+
+        if (!searchedFood || !Number.isFinite(grams) || grams <= 0) {
+          setStatus("Revisa el nombre del alimento y la cantidad.", "error");
+          return;
+        }
+
+        setStatus("Buscando en base local de alimentos...", "");
+
+        try {
+          const response = await fetch(`/api/foods/swap?food=${encodeURIComponent(searchedFood)}&grams=${encodeURIComponent(grams)}`);
+          const data = await response.json().catch(function () {
+            return { message: "No se pudo leer la respuesta del servidor." };
+          });
+
+          if (!response.ok) {
+            throw new Error(data.message || "No se pudo calcular la alternativa.");
+          }
+
+          currentRequest = {
+            food: searchedFood,
+            grams: Math.round(grams)
+          };
+          currentAlternatives = data.substitutions || [];
+          currentIndex = 0;
+
+          if (currentAlternatives.length === 0) {
+            throw new Error("No hay alternativas disponibles.");
+          }
+
+          displayAlternative(0);
+          setStatus("Alternativas calculadas con base local.", "ok");
+        } catch (error) {
+          setStatus(error.message || "No se pudo calcular la alternativa.", "error");
+          currentRequest = null;
+          currentAlternatives = [];
+          alternativeNav.style.display = "none";
+        }
+      });
+
+      prevBtn.addEventListener("click", function () {
+        displayAlternative(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener("click", function () {
+        displayAlternative(currentIndex + 1);
+      });
+    })();
+  </script>
+</body>
+</html>

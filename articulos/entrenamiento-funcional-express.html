@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenamiento Funcional Express 35 Minutos | Málaga</title>
+  <meta name="description" content="Sesiones de entrenamiento funcional de 35 minutos. Máxima condición en mínimo tiempo. Mejora movilidad, fuerza y cardio simultáneamente.">
+  <meta name="keywords" content="entrenamiento funcional, express, 35 minutos, condición física, Málaga">
+  <meta name="author" content="Vitalia Fit">
+  <meta property="og:title" content="Entrenamiento Funcional Express">
+  <meta property="og:description" content="Entrenamientos de 35 minutos que mejoran condición, fuerza y movilidad.">
+  <meta property="og:type" content="article">
+  <style>
+    :root {
+      --bg: #090b10;
+      --text: #f1f4fa;
+      --text-soft: #b2bdd0;
+      --accent: #00d084;
+      --accent-2: #ff8a26;
+      --danger: #ff5b5b;
+      --line: #2c364d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 500px at 80% -12%, rgba(0, 208, 132, 0.12), transparent 60%),
+        radial-gradient(900px 420px at 0% 0%, rgba(255, 138, 38, 0.1), transparent 58%),
+        var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(18, 23, 35, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    
+    header {
+      background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(255, 138, 38, 0.1));
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    header p {
+      font-size: 1.1em;
+      color: var(--text-soft);
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .intro {
+      background: rgba(0, 208, 132, 0.08);
+      padding: 25px;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 40px;
+      border-radius: 5px;
+      border: 1px solid var(--line);
+    }
+    
+    .intro p {
+      font-size: 1.05em;
+      color: var(--text-soft);
+    }
+    
+    h2 {
+      color: var(--accent);
+      margin-top: 35px;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      border-bottom: 3px solid var(--accent-2);
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: var(--accent-2);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    
+    .section {
+      margin-bottom: 35px;
+    }
+    
+    .section p {
+      margin-bottom: 12px;
+      color: var(--text-soft);
+      text-align: justify;
+    }
+    
+    .tips-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .tips-list li {
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      background: rgba(22, 28, 41, 0.8);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      transition: transform 0.2s;
+      border: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    .tips-list li:hover {
+      transform: translateX(5px);
+      background: rgba(22, 28, 41, 0.95);
+      border-left-color: var(--accent-2);
+    }
+    
+    .tips-list strong {
+      color: var(--accent);
+    }
+    
+    .highlight {
+      background: rgba(255, 138, 38, 0.12);
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border-left: 4px solid var(--accent-2);
+      border: 1px solid rgba(255, 138, 38, 0.35);
+      color: #ffd8b8;
+    }
+    
+    .success {
+      background: rgba(0, 208, 132, 0.12);
+      border-left: 4px solid var(--accent);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 208, 132, 0.35);
+      color: #8ff8cb;
+    }
+    
+    .warning {
+      background: rgba(255, 91, 91, 0.12);
+      border-left: 4px solid var(--danger);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 91, 91, 0.35);
+      color: #ff9e9e;
+    }
+    
+    .exercise-box {
+      background: rgba(22, 28, 41, 0.7);
+      border-left: 4px solid var(--accent-2);
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 5px;
+      border: 1px solid var(--line);
+    }
+    
+    .exercise-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    table th {
+      background: rgba(0, 208, 132, 0.15);
+      color: #8ff8cb;
+      padding: 12px;
+      text-align: left;
+      border: 1px solid var(--line);
+    }
+    
+    table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    table tr:hover {
+      background: rgba(0, 208, 132, 0.08);
+    }
+    
+    footer {
+      background: rgba(22, 28, 41, 0.8);
+      padding: 30px;
+      text-align: center;
+      color: var(--text-soft);
+      border-top: 1px solid var(--line);
+      font-size: 0.9em;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back-link:hover {
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="../paginadesalud.html" class="back-link">← Volver a inicio</a>
+      <h1>⚡ Entrenamiento Funcional Express 35 Minutos</h1>
+      <p>Mejora tu condición, fuerza y movilidad sin excusas de tiempo</p>
+    </header>
+    
+    <div class="content">
+      <div class="intro">
+        <p>
+          35 minutos es el tiempo perfecto: suficiente para un entrenamiento efectivo, insuficiente para 
+          excusas de "no tengo tiempo". Este protocolo combina movimientos funcionales que mejoran 
+          simultanea: resistencia cardiovascular, fuerza práctica y movilidad articular. 
+          Sin máquinas, sin complicaciones, puro movimiento.
+        </p>
+      </div>
+      
+      <div class="section">
+        <h2>1. ¿Por Qué Funcional Express?</h2>
+        <p>
+          El entrenamiento funcional extremadamente eficiente porque:
+        </p>
+        <ul class="tips-list">
+          <li><strong>Eficiencia temporal:</strong> Máximo resultado en mínimo tiempo.</li>
+          <li><strong>Realista:</strong> Movimientos que usas en vida diaria (empujar, tirar, cargar).</li>
+          <li><strong>Adaptable:</strong> Sin equipamiento especial. Cualquier lugar.</li>
+          <li><strong>Seguro:</strong> Baja lesión si respetas técnica y progesión.</li>
+          <li><strong>Adherencia:</strong> 35 min son manejables incluso días ocupados.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>2. Estructura Base (5 + 25 + 5 minutos)</h2>
+        <p>
+          Todo entrenamiento Express sigue la estructura 35 min. Esto es no negociable.
+        </p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Duración</th>
+              <th>Objetivo</th>
+              <th>Ejemplos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Calentamiento</strong></td>
+              <td>5 minutos</td>
+              <td>Elevar ritmo, lubricar articulaciones</td>
+              <td>Jumping jacks, rotaciones, movilidad dinámica</td>
+            </tr>
+            <tr>
+              <td><strong>Núcleo (AMRAP)</strong></td>
+              <td>25 minutos</td>
+              <td>Mayor volumen en menor tiempo</td>
+              <td>Circuito o intervalos de ejercicios</td>
+            </tr>
+            <tr>
+              <td><strong>Enfriamiento</strong></td>
+              <td>5 minutos</td>
+              <td>Recuperación, flexibilidad, respira</td>
+              <td>Estiramiento estático, respiración profunda</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="highlight">
+          <strong>AMRAP:</strong> "As Many Rounds As Possible" - haz tantas rondas como puedas de 
+          los ejercicios en 25 minutos con buena técnica.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>3. Entrenamientos Express Modelo 1 a 1 (Repite 1-2x semana)</h2>
+        <p>
+          Cada entrenamiento está diseñado para completar máximas rondas en 25 minutos con técnica correcta.
+        </p>
+        
+        <h3>Día A: Full Body Push (Empuje Total)</h3>
+        
+        <div class="exercise-box">
+          <strong>Calentamiento (5 min):</strong>
+          Jumping jacks 1 min → Arm circles 1 min → Bodyweight squats 1 min → Inchworms 1 min → Respiración 1 min
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Circuito AMRAP (25 min) - Haz máximas rondas:</strong><br>
+          • 10 Flexiones (push-ups)<br>
+          • 15 Sentadillas goblet (usa botella agua pesada)<br>
+          • 10 Flexiones Pike (glúteos arriba, empuje vertical)<br>
+          • 20 Abdominales Crunches<br>
+          • 10 Fondos en banco (tríceps)<br>
+          
+          <br><em style="color: var(--text-soft);">Objetivo: 3-4 rondas completas = ≈ 200 repeticiones totales en 25 min.</em>
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Enfriamiento (5 min):</strong>
+          Estiramiento pecho 1 min → Estiramiento tríceps 1 min → Cat-cow 1 min → Respiración controlada 1 min
+        </div>
+        
+        <h3>Día B: Full Body Pull (Tracción Total)</h3>
+        
+        <div class="exercise-box">
+          <strong>Calentamiento (5 min):</strong>
+          Comba o jump rope 2 min → Rotaciones hombro 1 min → Escápula activación 1 min → Respiración 1 min
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Circuito AMRAP (25 min) - Haz máximas rondas:</strong><br>
+          • 8 Flexiones agarrón inverso (si tienes barra)<br>
+          • 12 Filas con resistencia banda (o botellas)<br>
+          • 10 Dead bugs (coordinación estabilidad)<br>
+          • 15 Peso muerto rumano (o levantamiento con bolsas)<br>
+          • 10 Burpees (explosión + cardio)<br>
+          
+          <br><em style="color: var(--text-soft);">Objetivo: 2-3 rondas completas (más difícil que Día A).</em>
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Enfriamiento (5 min):</strong>
+          Estiramiento espalda 1.5 min → Estiramiento isquios 1.5 min → Respiración diafragmática 2 min
+        </div>
+        
+        <h3>Día C: Híbrido Full Body + Cardio</h3>
+        
+        <div class="exercise-box">
+          <strong>Calentamiento (5 min):</strong>
+          High knees 1.5 min → Leg swings 1 min → Giros cintura 1 min → Respiración 1.5 min
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Intervalo AMRAP (25 min):</strong><br>
+          Alterna cada bloque 40 seg trabajo / 20 seg descanso:<br>
+          • Bloque 1: Sentadilla + empuje (5 ciclos)<br>
+          • Bloque 2: Cardio (burpees, saltos) (5 ciclos)<br>
+          • Bloque 3: Tracción + fuerza core (5 ciclos)<br>
+          
+          <br><em style="color: var(--text-soft);">Objetivo: Máxima intensidad. Cardio + fuerza + metabolismo elevado.</em>
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Enfriamiento (5 min):</strong>
+          Respiración cuadrada 2 min → Estiramiento global 3 min
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>4. Progresión En 4 Semanas</h2>
+        <p>
+          No hagas el mismo trabajo. Cada semana debe ser ligeramente más difícil.
+        </p>
+        
+        <h3>Semana 1: Aprendizaje</h3>
+        <ul class="tips-list">
+          <li>Perfecciona técnica. Cantidad < Calidad.</li>
+          <li>Meta: Completar circuito sin errores de forma.</li>
+          <li>Si necesitas paras frecuentes, está bien. Descansa lo necesario.</li>
+        </ul>
+        
+        <h3>Semana 2: Volumen Base</h3>
+        <ul class="tips-list">
+          <li>Aumenta repeticiones en 20% (10 → 12, 15 → 18).</li>
+          <li>Reduce descansos entre Sets en 10 segundos.</li>
+          <li>Meta: Completar 3 rondas con menos paras.</li>
+        </ul>
+        
+        <h3>Semana 3: Densidad</h3>
+        <ul class="tips-list">
+          <li>Mantén reps exactas pero hazlas en menos tiempo.</li>
+          <li>Objetivo: 4 rondas de circuito original.</li>
+          <li>Descansos mínimos entre ejercicios (10-15 seg).</li>
+        </ul>
+        
+        <h3>Semana 4: Intensidad</h3>
+        <ul class="tips-list">
+          <li>Aumenta dificultad de movimientos (flexiones + peso, etc).</li>
+          <li>O agrega ejercicio explosivo (burpees, saltos).</li>
+          <li>Descansa esta semana (sábado/domingo entero).</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>5. Equipamiento y Espalda para Malaguistas</h2>
+        <p>
+          El entrenamiento funcional hermoso es que adaptable a lo que tengas disponible.
+        </p>
+        
+        <h3>Mínimo Absoluto (sin nada):</h3>
+        <ul class="tips-list">
+          <li>Peso corporal: flexiones, sentadillas, burpees, tablas.</li>
+          <li>Ambiente: piso limpio, disponibles espacio 2x2 metros.</li>
+        </ul>
+        
+        <h3>Mejorado (cosas en casa):</h3>
+        <ul class="tips-list">
+          <li>Botellas de agua llenas (8-10L).</li>
+          <li>Mochila con peso (arena/libros).</li>
+          <li>Banda elástica de resistencia.</li>
+          <li>Cuerda para saltar.</li>
+        </ul>
+        
+        <h3>Completo (si tienes acceso gym):</h3>
+        <ul class="tips-list">
+          <li>Barra de dominadas.</li>
+          <li>Pesas / discos ajustables.</li>
+          <li>Kettlebell.</li>
+          <li>Colchoneta.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>6. Recuperación Entre Entrenamientos</h2>
+        <p>
+          Express es intenso. Recuperación es cuando cresces.
+        </p>
+        
+        <ul class="tips-list">
+          <li><strong>Días entrenamiento:</strong> Máximo 2-3 por semana (con mínimo 1 día de reposo).</li>
+          <li><strong>Sueño:</strong> 7-9 horas crítico. Aquí es donde tu cuerpo se junta.</li>
+          <li><strong>Nutrición post:</strong> Proteína + carbos dentro de 1-2 horas post-entrenamiento.</li>
+          <li><strong>Movilidad:</strong> Los 5 minutos de enfriamiento. No los saltes.</li>
+          <li><strong>Días off:</strong> Descansa completamente 1-2 días por semana. tu sistema nervioso necesita pausa.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>7. Nutrición para Express</h2>
+        <p>
+          Entrenamientos intensos = necesidad de combustible.
+        </p>
+        
+        <div class="success">
+          <strong>Pre-entrenamiento (30-45 min antes):</strong><br>
+          • Plátano + almendra (carbos + grasa rápida)<br>
+          • Café con poco azúcar<br>
+          • MAD: evita comer pesado que te ralentice
+        </div>
+        
+        <div class="success" style="margin-top: 15px;">
+          <strong>Post-entrenamiento (primeras 2 horas):</strong><br>
+          • Proteína: pollo, atún, huevos, yogur<br>
+          • Carbos: arroz, papá, frutas<br>
+          • Agua: reemplaza lo perdido en sudor<br>
+          • Ejemplo: Filete + arroz + agua
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>8. Errores Comunes en Express</h2>
+        <ul class="tips-list">
+          <li><strong>Sacrificar forma por velocidad:</strong> Flexiones malas ≠ flexiones reales. Calidad ></li>
+          <li><strong>Sin progresión:</strong> Hacer el mismo circuito mes tras mes. Necesitas aumentar dificultad.</li>
+          <li><strong>No calentar:</strong> Los 5 minutos iniciales NO son opcionales. Previene lesiones.</li>
+          <li><strong>Entrenamiento diario:</strong> Express es intenso. 2-3 veces/semana es suficiente.</li>
+          <li><strong>No respirar:</strong> Respiración correcta aumentar fuerza. Exhala en esfuerzo, inhala en recuperación.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Conclusión: Tu Protocolo Express Semanal</h2>
+        
+        <div class="success">
+          <strong>✓ Semana Base:</strong><br>
+          Lunes: Día A (Push) 35 min<br>
+          Martes: Descanso<br>
+          Miércoles: Día B (Pull) 35 min<br>
+          Jueves: Descanso<br>
+          Viernes: Día C (Híbrido) 35 min<br>
+          Sábado: Descanso<br>
+          domingo: Descanso<br>
+          <br>
+          <strong>Total:</strong> 3 entrenamientos de 35 min/semana = 1 hora 45 minutos
+        </div>
+        
+        <div class="highlight" style="margin-top: 20px;">
+          <strong>Recuerda:</strong> 35 minutos bien hechos superan 90 minutos mal hechos. 
+          Tu tiempo es valioso. Que sea intenso, consistente, y real.
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p><strong>Nota:</strong> Express es un estilo de vida, no una moda. 
+      Si eres consistente 12 semanas, verás cambios dramáticos.</p>
+      <p>© 2026 - Vitalia Fit | Especializado para Málaga | Creado con ❤️ para tu bienestar</p>
+    </footer>
+  </div>
+</body>
+</html>

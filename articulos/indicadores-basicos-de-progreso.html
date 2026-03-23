@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indicadores Básicos de Progreso: Fuerza, Descanso, Adherencia y Energía | Málaga</title>
+  <meta name="description" content="Aprende a medir tu progreso real en fitness. Indicadores clave más allá del peso: fuerza, descanso, adherencia y energía.">
+  <meta name="keywords" content="progreso fitness, indicadores entrenamiento, métricas, Málaga, bienestar">
+  <meta name="author" content="Vitalia Fit">
+  <meta property="og:title" content="Indicadores Básicos de Progreso en Fitness">
+  <meta property="og:description" content="Cómo medir tu verdadero progreso más allá de la báscula.">
+  <meta property="og:type" content="article">
+  <style>
+    :root {
+      --bg: #090b10;
+      --text: #f1f4fa;
+      --text-soft: #b2bdd0;
+      --accent: #00d084;
+      --accent-2: #ff8a26;
+      --danger: #ff5b5b;
+      --line: #2c364d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 500px at 80% -12%, rgba(0, 208, 132, 0.12), transparent 60%),
+        radial-gradient(900px 420px at 0% 0%, rgba(255, 138, 38, 0.1), transparent 58%),
+        var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(18, 23, 35, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    
+    header {
+      background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(255, 138, 38, 0.1));
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    header p {
+      font-size: 1.1em;
+      color: var(--text-soft);
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .intro {
+      background: rgba(0, 208, 132, 0.08);
+      padding: 25px;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 40px;
+      border-radius: 5px;
+      border: 1px solid var(--line);
+    }
+    
+    .intro p {
+      font-size: 1.05em;
+      color: var(--text-soft);
+    }
+    
+    h2 {
+      color: var(--accent);
+      margin-top: 35px;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      border-bottom: 3px solid var(--accent-2);
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: var(--accent-2);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    
+    .section {
+      margin-bottom: 35px;
+    }
+    
+    .section p {
+      margin-bottom: 12px;
+      color: var(--text-soft);
+      text-align: justify;
+    }
+    
+    .tips-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .tips-list li {
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      background: rgba(22, 28, 41, 0.8);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      transition: transform 0.2s;
+      border: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    .tips-list li:hover {
+      transform: translateX(5px);
+      background: rgba(22, 28, 41, 0.95);
+      border-left-color: var(--accent-2);
+    }
+    
+    .tips-list strong {
+      color: var(--accent);
+    }
+    
+    .highlight {
+      background: rgba(255, 138, 38, 0.12);
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border-left: 4px solid var(--accent-2);
+      border: 1px solid rgba(255, 138, 38, 0.35);
+      color: #ffd8b8;
+    }
+    
+    .success {
+      background: rgba(0, 208, 132, 0.12);
+      border-left: 4px solid var(--accent);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 208, 132, 0.35);
+      color: #8ff8cb;
+    }
+    
+    .warning {
+      background: rgba(255, 91, 91, 0.12);
+      border-left: 4px solid var(--danger);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 91, 91, 0.35);
+      color: #ff9e9e;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    table th {
+      background: rgba(0, 208, 132, 0.15);
+      color: #8ff8cb;
+      padding: 12px;
+      text-align: left;
+      border: 1px solid var(--line);
+    }
+    
+    table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    table tr:hover {
+      background: rgba(0, 208, 132, 0.08);
+    }
+    
+    footer {
+      background: rgba(22, 28, 41, 0.8);
+      padding: 30px;
+      text-align: center;
+      color: var(--text-soft);
+      border-top: 1px solid var(--line);
+      font-size: 0.9em;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back-link:hover {
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="../paginadesalud.html" class="back-link">← Volver a inicio</a>
+      <h1>📊 Indicadores Básicos de Progreso</h1>
+      <p>Fuerza, descanso, adherencia y energía: cómo medir tu verdadero avance</p>
+    </header>
+    
+    <div class="content">
+      <div class="intro">
+        <p>
+          La báscula miente. El espejo miente. Los indicadores reales de progreso van mucho más allá del peso o la apariencia. 
+          Aprende a medir lo que realmente importa: fuerza funcional, calidad de sueño, consistencia y nivel de energía diario.
+        </p>
+      </div>
+      
+      <div class="section">
+        <h2>1. Fuerza: El Indicador Más Importante</h2>
+        <p>
+          La fuerza es el indicador más objetivo y medible de progreso real. Si puedes levantar más peso o hacer más repeticiones, 
+          estás ganando músculo y mejorando tu composición corporal.
+        </p>
+        
+        <h3>Cómo medirla:</h3>
+        <ul class="tips-list">
+          <li><strong>Teste de fuerza baseline:</strong> En la semana 1, prueba cuál es tu máximo en sentadillas, flexiones, peso muerto.</li>
+          <li><strong>Tracking semanal:</strong> Anota series, repeticiones y peso en cada sesión.</li>
+          <li><strong>Aumento del 5-10% mensual:</strong> Es el progreso realista para principiantes.</li>
+          <li><strong>Medidas de rendimiento funcional:</strong> ¿Cuántas flexiones seguidas haces? ¿Cuánto tiempo aguantas una plancha?</li>
+        </ul>
+        
+        <div class="highlight">
+          <strong>💡 Consejo:</strong> Lleva un diario simple en papel o un app. Ejemplo: "Lunes - Sentadilla 40kg x8 reps x3 series".
+          Ver el progreso escrito es muy motivador.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>2. Descanso y Calidad del Sueño</h2>
+        <p>
+          Un indicador ignorado pero crítico. Si duermes mal, todo falla: recuperación, progreso, motivación.
+        </p>
+        
+        <h3>Métricas a monitorear:</h3>
+        <ul class="tips-list">
+          <li><strong>Horas de sueño:</strong> Apunta cuántas horas dormiste cada noche. Meta: 7-9 horas.</li>
+          <li><strong>Calidad subjetiva:</strong> Escala 1-10: ¿dormiste profundo? ¿Despertaste durante la noche?</li>
+          <li><strong>Tiempo para dormir:</strong> Anota cuánto tardas en conciliar el sueño (meta: 10-20 minutos).</li>
+          <li><strong>Descanso entre sesiones:</strong> Mínimo 48 horas antes de trabajar el mismo grupo muscular.</li>
+        </ul>
+        
+        <div class="success">
+          <strong>✓ Semana "buena" de sueño:</strong><br>
+          • 7-9 horas cada noche<br>
+          • Consistencia horaria (acuéstate/despiertas a la misma hora)<br>
+          • Puntuación de calidad 7-9 en la mayoría de noches
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>3. Adherencia: La Métrica que Más Importa</h2>
+        <p>
+          El mejor plan que no ejecutas vale cero. La adherencia (consistencia) es el indicador que determina el éxito final.
+        </p>
+        
+        <h3>Cómo medirla:</h3>
+        <ul class="tips-list">
+          <li><strong>% de entrenamientos completados:</strong> Si planeas 3 al semana, ¿cuántos hiciste? Meta: 90%+.</li>
+          <li><strong>Nutrición consistente:</strong> ¿Comiste proteína en cada comida? ¿Bebiste agua según el plan?</li>
+          <li><strong>Registro visual:</strong> Usa un calendario y marca cada día completado. Ver rachas motiva.</li>
+          <li><strong>Days missed:</strong> ¿Cuántos días saltaste sin razón válida? Menos es mejor.</li>
+        </ul>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Adherencia %</th>
+              <th>Resultado Esperado</th>
+              <th>Clasificación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>80-100%</td>
+              <td>Progreso consistente visible</td>
+              <td>Excelente</td>
+            </tr>
+            <tr>
+              <td>60-79%</td>
+              <td>Progreso lento pero real</td>
+              <td>Bueno</td>
+            </tr>
+            <tr>
+              <td>40-59%</td>
+              <td>Poco progreso, entrenamientos aislados</td>
+              <td>Deficiente</td>
+            </tr>
+            <tr>
+              <td>&lt;40%</td>
+              <td>Prácticamente nulo, plan fallido</td>
+              <td>Fracaso</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="section">
+        <h2>4. Energía y Bienestar Diario</h2>
+        <p>
+          Tu nivel de energía es un reflejo directo de tu calidad de vida: entrenamiento, nutrición, sueño y estrés.
+        </p>
+        
+        <h3>Indicadores de energía:</h3>
+        <ul class="tips-list">
+          <li><strong>Energía matutina (1-10):</strong> ¿Qué tal despiertas? Anota cada mañana.</li>
+          <li><strong>Productividad laboral:</strong> ¿Rindes mejor en el trabajo? ¿Requieres menos café?</li>
+          <li><strong>Motivación para entrenar:</strong> ¿Esperas con entusiasmo cada sesión o la ves como obligación?</li>
+          <li><strong>Recuperación post-entreno:</strong> ¿Cuántas horas tardas en sentirte "normal" después de entrenar?</li>
+        </ul>
+        
+        <div class="highlight">
+          <strong>📈 Tendencia saludable:</strong><br>
+          Semana 1-2: Cansancio (adaptación normal)<br>
+          Semana 3-4: Aumento de energía<br>
+          Semana 5+: Energía sostenida, mejor sueño
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>5. Composición Corporal (Sin Obsesionarse con la Báscula)</h2>
+        <p>
+          El peso total es un pobre indicador porque no distingue entre grasa y músculo. Usa múltiples métricas.
+        </p>
+        
+        <h3>Mejor forma de medir:</h3>
+        <ul class="tips-list">
+          <li><strong>Peso (1x semanal):</strong> Mide siempre el mismo día y hora (mañana, después de baño).</li>
+          <li><strong>Perímetros (1x mensual):</strong> Cintura, pecho, brazos, muslos. Más útil que el peso.</li>
+          <li><strong>Fotos (antes/después cada 4 semanas):</strong> Toma fotos frontales, laterales, de espalda. La vista engaña.</li>
+          <li><strong>Cómo te siente la ropa:</strong> ¿Se ajusta diferente? Mejor indicador que la báscula.</li>
+        </ul>
+        
+        <div class="warning">
+          <strong>⚠️ Error común:</strong> Peso semanal con fluctuaciones normales (agua, digestión, sodio). 
+          Usa promedios mensuales y no te obsesiones con cambios diarios.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>6. Habilidades y Funcionalidad</h2>
+        <p>
+          Mide mejoras prácticas en tu vida diaria: subir escaleras, cargar bolsas, jugar sin cansarse.
+        </p>
+        
+        <h3>Preguntas clave:</h3>
+        <ul class="tips-list">
+          <li>¿Subo escaleras sin agitarme?</li>
+          <li>¿Cargo mis compras de un viaje sin parar?</li>
+          <li>¿Puedo jugar con mis hijos/mascotas sin cansarme?</li>
+          <li>¿Desaparecieron dolores crónicos (espalda, rodillas)?</li>
+          <li>¿Mejoro mi movilidad (flexibilidad, rango de movimiento)?</li>
+        </ul>
+        
+        <div class="success">
+          <strong>✓ Progreso real:</strong> Si respondiste "sí" a 3+ preguntas, estás mejorando de verdad, 
+          independientemente de lo que diga la báscula.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>7. Tu Dashboard de Progreso Semanal</h2>
+        <p>
+          Crea un sistema simple para rastrear todo. Aquí te mostramos cómo.
+        </p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Frecuencia</th>
+              <th>Cómo Medirla</th>
+              <th>Meta Semanal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Entrenamientos completos</td>
+              <td>Semanal</td>
+              <td>Marca cada sesión</td>
+              <td>3 de 3 (100%)</td>
+            </tr>
+            <tr>
+              <td>Horas de sueño</td>
+              <td>Diario</td>
+              <td>Contador simple</td>
+              <td>Promedio 7-9h</td>
+            </tr>
+            <tr>
+              <td>Fuerza (peso/reps)</td>
+              <td>Diario</td>
+              <td>Anota en sesión</td>
+              <td>+5% o +1-2 reps</td>
+            </tr>
+            <tr>
+              <td>Energía matutina</td>
+              <td>Diario</td>
+              <td>Escala 1-10</td>
+              <td>Promedio 7+</td>
+            </tr>
+            <tr>
+              <td>Peso</td>
+              <td>Semanal</td>
+              <td>Misma hora/día</td>
+              <td>-0.25% a +0.25% peso corporal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="section">
+        <h2>Conclusión: Mide Lo Que Importa</h2>
+        <p>
+          Olvida la obsesión con la báscula. Enfócate en: fuerza progresiva, sueño consistente, adherencia al plan, 
+          energía diaria y funcionalidad mejorada. Estas métricas te dirán la verdad sobre tu progreso.
+        </p>
+        
+        <div class="highlight">
+          <strong>🎯 Tu checklist de progreso:</strong><br>
+          ✓ Fuerza aumenta semana a semana<br>
+          ✓ 7-9 horas de sueño consistente<br>
+          ✓ 90%+ de adherencia a entrenamientos<br>
+          ✓ Energía diaria en aumento<br>
+          ✓ Ropa te queda diferente<br>
+          ✓ Funcionalidad mejorada (escaleras, movimientos)
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p><strong>Nota:</strong> Estos indicadores funcionan mejor juntos que solos. 
+      No esperes cambios visibles antes de 4-6 semanas de consistencia.</p>
+      <p>© 2026 - Vitalia Fit | Guía para Málaga y alrededores | Creado con ❤️ para tu bienestar</p>
+    </footer>
+  </div>
+</body>
+</html>

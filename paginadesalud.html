@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenamiento y Salud en Malaga | Vitalia Fit Malaga</title>
+  <meta name="description" content="Centro de entrenamiento y salud en Malaga. Planes de fuerza, perdida de grasa, movilidad y habitos. Primera valoracion gratis en Vitalia Fit Malaga.">
+  <meta name="keywords" content="entrenamiento Malaga, entrenador personal Malaga, salud Malaga, fitness Malaga centro, perdida de grasa Malaga, plan de entrenamiento Malaga">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Vitalia Fit Malaga">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Entrenamiento y Salud en Malaga | Vitalia Fit Malaga">
+  <meta property="og:description" content="Transforma tu energia con entrenamiento personalizado en Malaga. Reserva tu prueba gratis.">
+  <meta property="og:url" content="https://vitaliafitmalaga.com/">
+  <meta property="og:site_name" content="Vitalia Fit Malaga">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Entrenamiento y Salud en Malaga | Vitalia Fit Malaga">
+  <meta name="twitter:description" content="Programas de entrenamiento y salud para personas reales en Malaga.">
+  <link rel="canonical" href="https://vitaliafitmalaga.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b10;
+      --bg-soft: #121723;
+      --panel: #161c29;
+      --line: #2c364d;
+      --text: #f1f4fa;
+      --text-soft: #b2bdd0;
+      --accent: #00d084;
+      --accent-2: #ff8a26;
+      --danger: #ff5b5b;
+      --radius: 16px;
+      --shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 500px at 80% -12%, rgba(0, 208, 132, 0.12), transparent 60%),
+        radial-gradient(900px 420px at 0% 0%, rgba(255, 138, 38, 0.1), transparent 58%),
+        var(--bg);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 1.4rem));
+      margin: 0 auto;
+    }
+
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 12;
+      border-bottom: 1px solid rgba(44, 54, 77, 0.75);
+      background: rgba(9, 11, 16, 0.86);
+      backdrop-filter: blur(8px);
+    }
+
+    .top-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 0.7rem;
+      padding: 0.85rem 0;
+      width: 100%;
+    }
+
+    .brand {
+      margin: 0;
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-size: 1.35rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .zone {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .menu {
+      display: none;
+      gap: 0.8rem;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--text-soft);
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 0.25rem 0.45rem;
+      border-radius: 999px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .menu a:hover {
+      background: rgba(0, 208, 132, 0.12);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 1.2rem 0 1.4rem;
+      text-align: center;
+    }
+
+    .alert {
+      display: inline-block;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid rgba(255, 138, 38, 0.45);
+      color: #ffbe84;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Anton", sans-serif;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      font-size: clamp(1.8rem, 9vw, 3.7rem);
+      max-width: 12ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      margin: 0.9rem 0 1rem;
+      color: var(--text-soft);
+      max-width: 46ch;
+      font-size: 0.97rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+
+    .mega-tool-link {
+      display: block;
+      margin: 1rem auto 0;
+      max-width: 760px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: clamp(0.95rem, 2.3vw, 1.1rem);
+      letter-spacing: 0.2px;
+      color: #0a101c;
+      background: linear-gradient(135deg, #ffd24d, #ff9f1a);
+      border: 2px solid #ffe08a;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 24px rgba(255, 159, 26, 0.28);
+      animation: pulse-cta 1.8s ease-in-out infinite;
+    }
+
+    .mega-tool-link:hover {
+      transform: translateY(-1px) scale(1.01);
+    }
+
+    @keyframes pulse-cta {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 159, 26, 0.4), 0 12px 24px rgba(255, 159, 26, 0.28);
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(255, 159, 26, 0), 0 12px 24px rgba(255, 159, 26, 0.28);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 159, 26, 0), 0 12px 24px rgba(255, 159, 26, 0.28);
+      }
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 0.78rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, var(--accent) 0%, #00a56a 100%);
+      color: #06110c;
+      box-shadow: 0 10px 20px rgba(0, 208, 132, 0.2);
+    }
+
+    .btn-alt {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #3f4b67;
+    }
+
+    .btn-article {
+      background: rgba(20, 28, 44, 0.9);
+      color: #c8d8f2;
+      border: 1px solid #415378;
+      margin-top: 0.75rem;
+    }
+
+    .section-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0.2rem 0 1.1rem;
+    }
+
+    .strip {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.6rem;
+      text-align: center;
+    }
+
+    .strip div {
+      background: rgba(22, 28, 41, 0.65);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem;
+    }
+
+    .strip strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+
+    section {
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    .ai-hero-bg,
+    .ai-section-bg {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(47, 60, 86, 0.7);
+      padding: 1.2rem 0.9rem;
+    }
+
+    .ai-hero-bg::before,
+    .ai-section-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.04);
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    .ai-hero-bg::before {
+      background-image:
+        linear-gradient(165deg, rgba(8, 12, 20, 0.88), rgba(8, 12, 20, 0.6)),
+        url("https://image.pollinations.ai/prompt/ai%20generated%20dark%20fitness%20training%20background%20dramatic%20lighting%20high%20detail?width=1600&height=900&seed=84&nologo=true");
+    }
+
+    .ai-section-bg::before {
+      background-image:
+        linear-gradient(155deg, rgba(10, 14, 24, 0.86), rgba(11, 16, 28, 0.7)),
+        url("https://image.pollinations.ai/prompt/ai%20abstract%20sports%20energy%20background%20dark%20texture%20cinematic?width=1400&height=800&seed=2026&nologo=true");
+    }
+
+    .ai-section-alt::before {
+      background-image:
+        linear-gradient(145deg, rgba(11, 15, 27, 0.84), rgba(10, 14, 24, 0.7)),
+        url("https://image.pollinations.ai/prompt/ai%20generated%20health%20and%20wellness%20dark%20gradient%20background%20clean%20modern?width=1400&height=800&seed=117&nologo=true");
+    }
+
+    .title {
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.4rem, 6vw, 2rem);
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .sub {
+      margin: 0 0 1rem;
+      color: var(--text-soft);
+      max-width: 62ch;
+      font-size: 0.95rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cards {
+      display: grid;
+      gap: 0.7rem;
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(22, 28, 41, 0.95), rgba(17, 22, 34, 0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.95rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.45rem;
+      border-radius: 999px;
+      margin-bottom: 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      background: rgba(0, 208, 132, 0.14);
+      color: #8ff8cb;
+    }
+
+    .offer {
+      background: linear-gradient(145deg, rgba(255, 138, 38, 0.15), rgba(255, 91, 91, 0.08));
+      border: 1px solid rgba(255, 138, 38, 0.36);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .offer p {
+      margin: 0.35rem 0 0.75rem;
+      color: #ffd8b8;
+      font-size: 0.92rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.7rem;
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #dce3f1;
+      text-align: center;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #31405b;
+      border-radius: 10px;
+      padding: 0.68rem;
+      font: inherit;
+      color: var(--text);
+      background: #0d121d;
+      text-align: center;
+    }
+
+    textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .mini-result {
+      margin-top: 0.7rem;
+      font-size: 0.88rem;
+      color: #b8c3d8;
+      border: 1px dashed #3b4c6d;
+      border-radius: 10px;
+      padding: 0.65rem;
+      background: rgba(13, 18, 29, 0.75);
+      text-align: center;
+    }
+
+    .contact-panel {
+      background: linear-gradient(160deg, rgba(17, 25, 39, 0.92), rgba(11, 17, 29, 0.92));
+      border: 1px solid #2f3f60;
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .contact-panel .form-grid {
+      max-width: 760px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    #contacto .section-actions {
+      justify-content: center;
+    }
+
+    #contacto .btn-main {
+      min-width: 220px;
+    }
+
+    .booking-panel {
+      background: linear-gradient(155deg, rgba(18, 26, 42, 0.95), rgba(11, 17, 30, 0.95));
+      border: 1px solid #2d3f5f;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .booking-layout {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .calendar-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .calendar-month {
+      margin: 0;
+      font-size: 1.02rem;
+      letter-spacing: 0.3px;
+      text-transform: capitalize;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.35rem;
+    }
+
+    .calendar-legend {
+      display: flex;
+      gap: 0.7rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0.35rem 0 0.7rem;
+      font-size: 0.78rem;
+      color: #a8b8d6;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .legend-dot.available {
+      background: rgba(0, 208, 132, 0.28);
+      border-color: #1fd595;
+    }
+
+    .legend-dot.occupied {
+      background: rgba(255, 91, 91, 0.24);
+      border-color: #ff6f6f;
+    }
+
+    .weekday {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #91a1c1;
+      padding: 0.35rem 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      text-align: center;
+    }
+
+    .day-btn {
+      border: 1px solid #326451;
+      background: rgba(14, 21, 35, 0.94);
+      color: #d7e2f5;
+      border-radius: 10px;
+      min-height: 44px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .day-btn:hover {
+      transform: translateY(-1px);
+      border-color: #4a6390;
+      background: rgba(19, 28, 45, 0.98);
+    }
+
+    .day-btn.is-available {
+      border-color: #1ea777;
+      background: rgba(0, 208, 132, 0.11);
+      color: #d5fbe8;
+    }
+
+    .day-btn.is-selected {
+      border-color: #00c985;
+      background: rgba(0, 208, 132, 0.17);
+      color: #d8ffe9;
+    }
+
+    .day-btn.is-booked {
+      border-color: #cd5151;
+      background: rgba(255, 91, 91, 0.16);
+      color: #ffd2d2;
+    }
+
+    .day-btn:disabled,
+    .slot-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .slots-title {
+      margin: 0.85rem 0 0.45rem;
+      font-size: 0.9rem;
+      color: #d7e2f5;
+      text-align: center;
+    }
+
+    .slot-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .slot-btn {
+      border: 1px solid #2f644f;
+      background: rgba(15, 22, 37, 0.95);
+      color: #dbe5f7;
+      border-radius: 10px;
+      padding: 0.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .slot-btn.is-available {
+      border-color: #1ea777;
+      background: rgba(0, 208, 132, 0.12);
+      color: #d5fbe8;
+    }
+
+    .slot-btn.is-selected {
+      border-color: #00c985;
+      background: rgba(0, 208, 132, 0.16);
+      color: #d8ffe9;
+    }
+
+    .slot-btn.is-occupied {
+      border-color: #cd5151;
+      background: rgba(255, 91, 91, 0.14);
+      color: #ffd2d2;
+    }
+
+    .booking-summary {
+      margin: 0.8rem 0 0.2rem;
+      font-size: 0.87rem;
+      color: #bfd1ee;
+      text-align: center;
+      min-height: 1.2rem;
+    }
+
+    .booking-status {
+      margin-top: 0.55rem;
+      min-height: 1.2rem;
+      font-size: 0.88rem;
+      text-align: center;
+      color: #c8d6ee;
+    }
+
+    .booking-status.ok {
+      color: #8ff8cb;
+    }
+
+    .booking-status.error {
+      color: #ffb2b2;
+    }
+
+    .contact-status {
+      min-height: 1.2rem;
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: #c7d7f1;
+      text-align: center;
+    }
+
+    .contact-status.ok {
+      color: #8ff8cb;
+    }
+
+    .contact-status.error {
+      color: #ffb2b2;
+    }
+
+    .swap-panel {
+      background: linear-gradient(158deg, rgba(18, 27, 41, 0.95), rgba(12, 18, 30, 0.95));
+      border: 1px solid #304360;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .swap-grid {
+      display: grid;
+      gap: 0.7rem;
+      grid-template-columns: 1fr;
+    }
+
+    .swap-status {
+      margin-top: 0.55rem;
+      min-height: 1.2rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #c8d6ee;
+    }
+
+    .swap-status.ok {
+      color: #8ff8cb;
+    }
+
+    .swap-status.error {
+      color: #ffb2b2;
+    }
+
+    .swap-result {
+      margin-top: 0.7rem;
+      border: 1px dashed #3c5076;
+      border-radius: 10px;
+      padding: 0.7rem;
+      color: #cddbf4;
+      font-size: 0.9rem;
+      text-align: center;
+      min-height: 2.2rem;
+      white-space: pre-line;
+    }
+
+    .swap-alt-list {
+      margin-top: 0.7rem;
+      display: grid;
+      gap: 0.55rem;
+      grid-template-columns: 1fr;
+    }
+
+    .swap-alt-item {
+      border: 1px solid #354a70;
+      border-radius: 11px;
+      background: rgba(12, 19, 33, 0.92);
+      padding: 0.7rem;
+      display: grid;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    .swap-alt-item .meta {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #d0def8;
+      line-height: 1.4;
+    }
+
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .reviews {
+      display: grid;
+      gap: 0.7rem;
+      grid-template-columns: 1fr;
+    }
+
+    .info-panel {
+      background: rgba(15, 20, 32, 0.86);
+      border: 1px solid #2d3850;
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .info-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .info-list li {
+      border: 1px solid #32405e;
+      border-radius: 10px;
+      padding: 0.9rem;
+      background: linear-gradient(180deg, rgba(20, 28, 42, 0.95), rgba(13, 19, 31, 0.95));
+      color: #c9d3e7;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.55rem;
+      min-height: 100%;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .info-list li:hover {
+      transform: translateY(-2px);
+      border-color: #4a6190;
+    }
+
+    .info-list li .btn {
+      margin-top: 0.2rem;
+    }
+
+    .review {
+      background: rgba(16, 22, 34, 0.85);
+      border: 1px solid #2f3b55;
+      border-radius: 12px;
+      padding: 0.9rem;
+    }
+
+    .review p {
+      margin: 0 0 0.45rem;
+      color: #d0d8ea;
+      font-size: 0.91rem;
+    }
+
+    .review strong {
+      color: #9fd5ff;
+      font-size: 0.83rem;
+    }
+
+    footer {
+      padding: 1.2rem 0 4.7rem;
+      border-top: 1px solid #2b3449;
+      color: #97a2b7;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .mobile-cta {
+      position: fixed;
+      left: 0.6rem;
+      right: 0.6rem;
+      bottom: 0.65rem;
+      z-index: 15;
+      border-radius: 14px;
+      text-align: center;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 0.95rem 0.8rem;
+      background: linear-gradient(135deg, var(--accent), #12b37a);
+      color: #06110c;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px) scale(0.99);
+      filter: blur(1.8px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s cubic-bezier(0.2, 0.65, 0.25, 1),
+        filter 0.65s ease;
+      will-change: transform, opacity, filter;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.16s;
+    }
+
+    @media (min-width: 700px) {
+      .container {
+        width: min(1200px, calc(100% - 2rem));
+      }
+
+      .strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reviews {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+
+      .info-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .slot-list {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .swap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        padding: 1.8rem 0 1.7rem;
+      }
+
+      .ai-hero-bg,
+      .ai-section-bg {
+        padding: 1.6rem 1.2rem;
+      }
+    }
+
+    @media (min-width: 820px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .menu {
+        display: flex;
+        justify-content: center;
+        gap: 1.15rem;
+      }
+
+      .top-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        gap: 1.2rem;
+        padding: 1rem 0;
+      }
+
+      .hero {
+        padding: 2.4rem 0 2rem;
+        display: block;
+      }
+
+      .ai-hero-bg,
+      .ai-section-bg {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        max-width: 26ch;
+        font-size: clamp(2.8rem, 4.8vw, 4.6rem);
+      }
+
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .booking-layout {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: start;
+      }
+
+      .swap-alt-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .reviews {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .info-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .mobile-cta {
+        display: none;
+      }
+
+      footer {
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .container {
+        width: min(1440px, calc(100% - 3rem));
+      }
+
+      .top-inner {
+        padding: 1.15rem 0;
+      }
+
+      .brand {
+        font-size: 1.6rem;
+      }
+
+      .menu {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        width: calc(100% - 1rem);
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section-actions {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.55rem, 10vw, 2rem);
+      }
+
+      .slot-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal.is-visible,
+      .reveal-delay-1,
+      .reveal-delay-2 {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthClub",
+    "name": "Vitalia Fit Malaga",
+    "url": "https://vitaliafitmalaga.com/",
+    "telephone": "+34 951 00 00 00",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle de la Energia 21",
+      "addressLocality": "Malaga",
+      "postalCode": "29001",
+      "addressRegion": "Andalucia",
+      "addressCountry": "ES"
+    },
+    "areaServed": "Malaga",
+    "priceRange": "EUR",
+    "description": "Entrenamiento personalizado y salud integral en Malaga"
+  }
+  </script>
+</head>
+<body>
+  <header class="top">
+    <div class="container top-inner">
+      <div>
+        <h1 class="brand">Vitalia Fit</h1>
+        <span class="zone">Entrenamiento y salud en Malaga</span>
+      </div>
+      <nav class="menu" aria-label="Navegacion principal">
+        <a href="#programas">Programas</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#malaga">Malaga</a>
+        <a href="#gratis">Gratis</a>
+        <a href="#citas">Citas</a>
+        <a href="herramienta-intercambios.html">Intercambios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container ai-hero-bg" id="inicio">
+      <div>
+        <span class="alert">Informacion de entrenamiento y salud en Malaga</span>
+        <h1>Tu mejor version empieza con un plan serio</h1>
+        <p>
+          Esta web te orienta para entrenar con criterio y cuidar tu salud de forma sostenible.
+          Encontraras recomendaciones, programas y recursos utiles para distintos niveles, con enfoque educativo y gratuito.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-main" href="#gratis">Ver contenido gratuito</a>
+          <a class="btn btn-alt" href="#recursos">Consultar recursos utiles</a>
+        </div>
+        <a class="mega-tool-link" href="herramienta-intercambios.html">
+          Herramienta destacada: Intercambio de alimentos inteligente. Entra aqui.
+        </a>
+      </div>
+
+      <aside class="strip" aria-label="Prueba social y beneficios">
+        <div>
+          <strong>+420</strong>
+          personas entrenando con nosotros en Malaga.
+        </div>
+        <div>
+          <strong>90 dias</strong>
+          para notar cambios reales con seguimiento semanal.
+        </div>
+        <div>
+          <strong>Sin humo</strong>
+          metodo simple, medible y adaptado a tu nivel.
+        </div>
+      </aside>
+    </section>
+
+    <section class="container" id="programas">
+      <h2 class="title">Programas de entrenamiento en Malaga</h2>
+      <p class="sub">
+        Diseñados para personas con poco tiempo, con opciones para empezar desde cero o romper estancamientos.
+      </p>
+      <div class="section-actions">
+        <a class="btn btn-article" href="articulos/guia-entrenamiento-principiantes-malaga.html">Articulo: Empezar desde cero</a>
+        <a class="btn btn-article" href="articulos/plan-semanal-fuerza-y-habitos.html">Articulo: Plan semanal recomendado</a>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="badge">Fuerza</span>
+          <h3>Plan Recompone 12 semanas</h3>
+          <p>Fuerza, perdida de grasa y guia nutricional para un cambio visible y sostenible.</p>
+          <a class="btn btn-article" href="articulos/recompone-12-semanas-explicado.html">Leer articulo</a>
+        </article>
+        <article class="card">
+          <span class="badge">Rendimiento</span>
+          <h3>Entrenamiento funcional express</h3>
+          <p>Sesiones de 35 minutos para mejorar condicion y movilidad sin perder tiempo.</p>
+          <a class="btn btn-article" href="articulos/entrenamiento-funcional-express.html">Leer articulo</a>
+        </article>
+        <article class="card">
+          <span class="badge">Habitos</span>
+          <h3>Reset de energia y sueño</h3>
+          <p>Rutinas para controlar estres, dormir mejor y subir tu nivel de energia diario.</p>
+          <a class="btn btn-article" href="articulos/reset-energia-y-sueno.html">Leer articulo</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="container ai-section-bg" id="resultados">
+      <h2 class="title">Resultados y metodologia</h2>
+      <p class="sub">Explicamos como trabajamos para que puedas decidir con informacion clara.</p>
+      <div class="section-actions">
+        <a class="btn btn-article" href="articulos/metodologia-vitalia-fit.html">Ver metodologia completa</a>
+        <a class="btn btn-article" href="articulos/como-medir-progreso-real.html">Como medir progreso real</a>
+      </div>
+      <div class="cards">
+        <article class="offer card">
+          <h3>Guia inicial de 7 dias</h3>
+          <p>Incluye una propuesta de entrenamientos cortos y recomendaciones de habitos para empezar con seguridad.</p>
+          <a class="btn btn-main" href="articulos/guia-inicial-7-dias.html">Leer guia de 7 dias</a>
+        </article>
+        <article class="offer card">
+          <h3>Valoracion orientativa</h3>
+          <p>Revisamos objetivos, disponibilidad y nivel actual para recomendar un camino realista.</p>
+          <a class="btn btn-alt" href="articulos/valoracion-orientativa-primer-paso.html">Ver recomendaciones</a>
+        </article>
+        <article class="offer card">
+          <h3>Seguimiento y ajuste del plan</h3>
+          <p>Mostramos como revisar progreso y adaptar cargas, descanso y habitos para evitar estancamientos.</p>
+          <a class="btn btn-alt" href="articulos/seguimiento-y-ajuste-del-plan.html">Ver articulo</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="recursos">
+      <h2 class="title">Recursos informativos</h2>
+      <p class="sub">Contenido pensado para ayudarte a entrenar mejor y prevenir errores frecuentes.</p>
+      <div class="section-actions">
+        <a class="btn btn-article" href="articulos/biblioteca-recursos-gratis.html">Biblioteca de articulos gratis</a>
+        <a class="btn btn-article" href="articulos/herramientas-necesarias-entrenamiento-malaga.html">Herramientas recomendadas</a>
+        <a class="btn btn-article" href="articulos/suplementos-salud-entrenamiento-malaga.html">Guia de suplementos</a>
+      </div>
+      <article class="info-panel">
+        <ul class="info-list">
+          <li>
+            Como empezar a mejorar tu salud desde cero: guia practica y realista.<br>
+            <a class="btn btn-article" href="salud-desde-cero.html">Leer guia completa</a>
+          </li>
+          <li>
+            Como estructurar una semana de entrenamiento para principiantes.<br>
+            <a class="btn btn-article" href="articulos/semana-entrenamiento-principiantes.html">Ir al articulo</a>
+          </li>
+          <li>
+            Indicadores basicos de progreso: fuerza, descanso, adherencia y energia.<br>
+            <a class="btn btn-article" href="articulos/indicadores-basicos-de-progreso.html">Ir al articulo</a>
+          </li>
+          <li>
+            Recomendaciones de movilidad para trabajar muchas horas sentado.<br>
+            <a class="btn btn-article" href="articulos/movilidad-para-personas-sedentarias.html">Ir al articulo</a>
+          </li>
+          <li>
+            Pautas de hidratacion y recuperacion adaptadas al clima de Malaga.<br>
+            <a class="btn btn-article" href="articulos/hidratacion-y-recuperacion-en-malaga.html">Ir al articulo</a>
+          </li>
+          <li>
+            Importancia del musculo para envejecer con fuerza, autonomia y salud en Malaga.<br>
+            <a class="btn btn-article" href="articulos/importancia-del-musculo-en-el-envejecimiento.html">Ir al articulo</a>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="container ai-section-bg ai-section-alt" id="malaga">
+      <h2 class="title">Enfocados en Malaga y alrededores</h2>
+      <p class="sub">
+        Atendemos presencial en Malaga centro y online para Teatinos, Huelin, El Palo, Rincon de la Victoria y Torremolinos.
+      </p>
+      <div class="section-actions">
+        <a class="btn btn-article" href="articulos/entrenar-en-malaga-segun-zona.html">Entrenar segun tu zona</a>
+        <a class="btn btn-article" href="articulos/rutas-y-espacios-para-entrenar-malaga.html">Espacios para entrenar en Malaga</a>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <p>"En 10 semanas baje grasa y recupere energia. Por fin un plan claro en Malaga."</p>
+          <strong>Marina, Malaga Centro</strong>
+        </article>
+        <article class="review">
+          <p>"Entrenamientos cortos, directos y sin perder tiempo. Lo que necesitaba."</p>
+          <strong>Alvaro, Teatinos</strong>
+        </article>
+        <article class="review">
+          <p>"Me engancho el seguimiento semanal. No te dejan caer."</p>
+          <strong>Carmen, Huelin</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="gratis">
+      <h2 class="title">Contenido gratuito (80%)</h2>
+      <p class="sub">
+        Actualmente, la mayor parte de esta web es abierta y gratuita. Compartimos informacion practica para que cualquier persona pueda mejorar su salud.
+      </p>
+      <div class="section-actions">
+        <a class="btn btn-main" href="articulos/todo-el-contenido-gratuito.html">Ver todos los articulos gratuitos</a>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="badge">Gratis</span>
+          <h3>Guias y rutinas base</h3>
+          <p>Publicamos planes introductorios, movilidad, fuerza inicial y habitos semanales sin coste.</p>
+          <a class="btn btn-article" href="articulos/guias-y-rutinas-base.html">Leer articulo</a>
+        </article>
+        <article class="card">
+          <span class="badge">Gratis</span>
+          <h3>Articulos y recomendaciones</h3>
+          <p>Consejos de entrenamiento, recuperacion y constancia pensados para aplicarse en el dia a dia.</p>
+          <a class="btn btn-article" href="articulos/articulos-y-recomendaciones.html">Leer articulo</a>
+        </article>
+        <article class="card">
+          <span class="badge">Futuro</span>
+          <h3>Clases y especializaciones</h3>
+          <p>Mas adelante abriremos clases de distintos tipos, manteniendo siempre una base amplia de contenido gratuito.</p>
+          <a class="btn btn-article" href="articulos/proximas-clases-y-especializaciones.html">Conocer plan futuro</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="container ai-section-bg" id="citas">
+        <h2 class="title">Reserva tu cita en calendario</h2>
+        <p class="sub">Elige dia y hora disponibles y te confirmaremos por correo automaticamente.</p>
+        <article class="booking-panel">
+          <div class="booking-layout">
+            <div>
+              <div class="calendar-head">
+                <button id="monthPrev" class="btn btn-alt" type="button">Mes anterior</button>
+                <h3 id="calendarMonthLabel" class="calendar-month">Mes</h3>
+                <button id="monthNext" class="btn btn-alt" type="button">Mes siguiente</button>
+              </div>
+              <div id="calendarGrid" class="calendar-grid" aria-label="Calendario de citas"></div>
+              <div class="calendar-legend" aria-hidden="true">
+                <span class="legend-item"><span class="legend-dot available"></span>Disponible (verde)</span>
+                <span class="legend-item"><span class="legend-dot occupied"></span>Ocupado (rojo)</span>
+              </div>
+              <p class="booking-summary" id="bookingSummary">Selecciona un dia para ver horarios.</p>
+              <p class="slots-title">Horarios disponibles</p>
+              <div id="slotList" class="slot-list" aria-label="Horarios de cita"></div>
+            </div>
+
+            <div>
+              <form id="bookingForm" class="form-grid" novalidate>
+                <div>
+                  <label for="bookingNombre">Nombre</label>
+                  <input id="bookingNombre" name="nombre" type="text" autocomplete="name" required>
+                </div>
+                <div>
+                  <label for="bookingEmail">Email</label>
+                  <input id="bookingEmail" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div>
+                  <label for="bookingTelefono">Telefono (opcional)</label>
+                  <input id="bookingTelefono" name="telefono" type="tel" autocomplete="tel">
+                </div>
+                <div class="full">
+                  <label for="bookingMensaje">Mensaje (opcional)</label>
+                  <textarea id="bookingMensaje" name="mensaje" placeholder="Cuéntanos brevemente tu objetivo"></textarea>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="bookingWebsite">Website</label>
+                  <input id="bookingWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="full section-actions">
+                  <button class="btn btn-main" id="bookingSubmit" type="submit">Reservar cita</button>
+                </div>
+              </form>
+              <p id="bookingStatus" class="booking-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </article>
+    </section>
+
+    <section class="container" id="contacto">
+      <h2 class="title">Contacta con nosotros</h2>
+      <p class="sub">Rellena este formulario y te responderemos por correo lo antes posible.</p>
+      <article class="contact-panel">
+        <form id="contactForm" class="form-grid" novalidate>
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="telefono">Telefono (opcional)</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel">
+          </div>
+          <div>
+            <label for="objetivo">Objetivo principal</label>
+            <select id="objetivo" name="objetivo" required>
+              <option value="">Selecciona una opcion</option>
+              <option value="perder-grasa">Perder grasa</option>
+              <option value="ganar-fuerza">Ganar fuerza</option>
+              <option value="movilidad-y-salud">Movilidad y salud general</option>
+              <option value="empezar-desde-cero">Empezar desde cero</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tu situacion y disponibilidad" required></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="full section-actions">
+            <button class="btn btn-main" id="contactSubmit" type="submit">Enviar formulario</button>
+          </div>
+        </form>
+        <p id="contactStatus" class="contact-status" role="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      Vitalia Fit Malaga | Salud y entrenamiento en Malaga. Contenido informativo, no sustituye consejo medico.
+    </div>
+  </footer>
+
+  <a class="mobile-cta" href="#gratis">Explorar contenido gratuito</a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const monthLabel = document.getElementById("calendarMonthLabel");
+      const calendarGrid = document.getElementById("calendarGrid");
+      const slotList = document.getElementById("slotList");
+      const monthPrev = document.getElementById("monthPrev");
+      const monthNext = document.getElementById("monthNext");
+      const bookingSummary = document.getElementById("bookingSummary");
+      const bookingForm = document.getElementById("bookingForm");
+      const bookingSubmit = document.getElementById("bookingSubmit");
+      const bookingStatus = document.getElementById("bookingStatus");
+
+      const monthNames = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre"
+      ];
+
+      const weekNames = ["L", "M", "X", "J", "V", "S", "D"];
+      const slotTimes = ["09:00", "10:00", "11:00", "12:00", "13:00", "16:00", "17:00", "18:00", "19:00"];
+      const bookingState = {
+        monthStart: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+        selectedDate: "",
+        selectedTime: "",
+        appointmentsByDay: new Map()
+      };
+
+      function toDateKey(date) {
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        const d = String(date.getDate()).padStart(2, "0");
+        return `${y}-${m}-${d}`;
+      }
+
+      function isPastDay(dateKey) {
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const target = new Date(`${dateKey}T00:00:00`);
+        return target < today;
+      }
+
+      function isWeekend(dateKey) {
+        const day = new Date(`${dateKey}T00:00:00`).getDay();
+        return day === 0 || day === 6;
+      }
+
+      function isPastDateTime(dateKey, time) {
+        const target = new Date(`${dateKey}T${time}:00`);
+        return target.getTime() <= Date.now();
+      }
+
+      function formatDateLong(dateKey) {
+        const d = new Date(`${dateKey}T00:00:00`);
+        return `${d.getDate()} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
+      }
+
+      function setBookingStatus(message, kind) {
+        if (!bookingStatus) return;
+        bookingStatus.textContent = message || "";
+        bookingStatus.className = kind ? `booking-status ${kind}` : "booking-status";
+      }
+      function renderSlots() {
+        if (!slotList || !bookingSummary) return;
+        slotList.innerHTML = "";
+
+        if (!bookingState.selectedDate) {
+          bookingSummary.textContent = "Selecciona un dia para ver horarios.";
+          return;
+        }
+
+        const occupied = bookingState.appointmentsByDay.get(bookingState.selectedDate) || new Set();
+        bookingSummary.textContent = bookingState.selectedTime
+          ? `Seleccionado: ${formatDateLong(bookingState.selectedDate)} a las ${bookingState.selectedTime}`
+          : `Dia elegido: ${formatDateLong(bookingState.selectedDate)}. Escoge una hora.`;
+
+        slotTimes.forEach(function (time) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "slot-btn";
+          btn.textContent = time;
+
+          const occupiedSlot = occupied.has(time);
+          const expiredSlot = isPastDateTime(bookingState.selectedDate, time);
+          const disabled = occupiedSlot || expiredSlot;
+          btn.disabled = disabled;
+
+          if (occupiedSlot) {
+            btn.classList.add("is-occupied");
+            btn.title = "Horario ya reservado";
+          } else if (!expiredSlot) {
+            btn.classList.add("is-available");
+            btn.title = "Horario disponible";
+          }
+
+          if (bookingState.selectedTime === time) {
+            btn.classList.add("is-selected");
+          }
+
+          btn.addEventListener("click", function () {
+            bookingState.selectedTime = time;
+            setBookingStatus("", "");
+            renderSlots();
+          });
+
+          slotList.appendChild(btn);
+        });
+      }
+
+      function renderCalendar() {
+        if (!calendarGrid || !monthLabel) return;
+
+        calendarGrid.innerHTML = "";
+        monthLabel.textContent = `${monthNames[bookingState.monthStart.getMonth()]} ${bookingState.monthStart.getFullYear()}`;
+
+        weekNames.forEach(function (name) {
+          const cell = document.createElement("div");
+          cell.className = "weekday";
+          cell.textContent = name;
+          calendarGrid.appendChild(cell);
+        });
+
+        const firstDay = new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth(), 1);
+        const daysInMonth = new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth() + 1, 0).getDate();
+        const mondayBasedStart = (firstDay.getDay() + 6) % 7;
+
+        for (let i = 0; i < mondayBasedStart; i += 1) {
+          const spacer = document.createElement("div");
+          calendarGrid.appendChild(spacer);
+        }
+
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const date = new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth(), day);
+          const key = toDateKey(date);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "day-btn";
+          btn.textContent = String(day);
+
+          const notBookableDay = isWeekend(key) || isPastDay(key);
+          const occupied = bookingState.appointmentsByDay.get(key) || new Set();
+          const availableCount = slotTimes.filter(function (time) {
+            return !occupied.has(time) && !isPastDateTime(key, time);
+          }).length;
+
+          if (!notBookableDay && availableCount > 0) {
+            btn.classList.add("is-available");
+          }
+
+          if (!notBookableDay && availableCount === 0) {
+            btn.classList.add("is-booked");
+          }
+
+          if (bookingState.selectedDate === key) {
+            btn.classList.add("is-selected");
+          }
+
+          btn.disabled = notBookableDay;
+          btn.title = notBookableDay ? "Dia no disponible" : `Reservar ${formatDateLong(key)}`;
+
+          btn.addEventListener("click", function () {
+            bookingState.selectedDate = key;
+            bookingState.selectedTime = "";
+            setBookingStatus("", "");
+            renderCalendar();
+            renderSlots();
+          });
+
+          calendarGrid.appendChild(btn);
+        }
+      }
+
+      async function loadMonthAppointments() {
+        const from = toDateKey(new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth(), 1));
+        const to = toDateKey(new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth() + 1, 0));
+
+        try {
+          const response = await fetch(`/api/appointments?from=${from}&to=${to}`);
+          const result = await response.json().catch(function () {
+            return { appointments: [] };
+          });
+
+          if (!response.ok) {
+            throw new Error(result.message || "No se pudo cargar disponibilidad.");
+          }
+
+          const byDay = new Map();
+          (result.appointments || []).forEach(function (item) {
+            if (!byDay.has(item.fecha)) {
+              byDay.set(item.fecha, new Set());
+            }
+            byDay.get(item.fecha).add(item.hora);
+          });
+
+          bookingState.appointmentsByDay = byDay;
+          renderCalendar();
+          renderSlots();
+        } catch (error) {
+          bookingState.appointmentsByDay = new Map();
+          renderCalendar();
+          renderSlots();
+          setBookingStatus(error.message || "No se pudo cargar el calendario.", "error");
+        }
+      }
+
+      if (monthPrev && monthNext) {
+        monthPrev.addEventListener("click", function () {
+          bookingState.monthStart = new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth() - 1, 1);
+          loadMonthAppointments();
+        });
+
+        monthNext.addEventListener("click", function () {
+          bookingState.monthStart = new Date(bookingState.monthStart.getFullYear(), bookingState.monthStart.getMonth() + 1, 1);
+          loadMonthAppointments();
+        });
+      }
+
+      if (bookingForm && bookingSubmit) {
+        bookingForm.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          if (!bookingState.selectedDate || !bookingState.selectedTime) {
+            setBookingStatus("Selecciona dia y hora antes de reservar.", "error");
+            return;
+          }
+
+          const formData = new FormData(bookingForm);
+          const payload = {
+            nombre: (formData.get("nombre") || "").toString().trim(),
+            email: (formData.get("email") || "").toString().trim(),
+            telefono: (formData.get("telefono") || "").toString().trim(),
+            mensaje: (formData.get("mensaje") || "").toString().trim(),
+            website: (formData.get("website") || "").toString().trim(),
+            fecha: bookingState.selectedDate,
+            hora: bookingState.selectedTime
+          };
+
+          if (!payload.nombre || !payload.email) {
+            setBookingStatus("Nombre y email son obligatorios.", "error");
+            return;
+          }
+
+          bookingSubmit.disabled = true;
+          bookingSubmit.textContent = "Reservando...";
+          setBookingStatus("", "");
+
+          try {
+            const response = await fetch("/api/appointments", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json().catch(function () {
+              return { message: "No se pudo procesar la respuesta del servidor." };
+            });
+
+            if (!response.ok) {
+              throw new Error(result.message || "No se pudo completar la reserva.");
+            }
+
+            bookingForm.reset();
+            bookingState.selectedTime = "";
+            setBookingStatus(result.message || "Cita reservada correctamente.", "ok");
+            await loadMonthAppointments();
+          } catch (error) {
+            const serverDown = error instanceof TypeError;
+            setBookingStatus(
+              serverDown
+                ? "No hay conexion con el servidor. Arranca la web con npm start y abre http://localhost:3000."
+                : (error.message || "Error al reservar la cita."),
+              "error"
+            );
+          } finally {
+            bookingSubmit.disabled = false;
+            bookingSubmit.textContent = "Reservar cita";
+          }
+        });
+      }
+
+      loadMonthAppointments();
+
+      const contactForm = document.getElementById("contactForm");
+      const contactSubmit = document.getElementById("contactSubmit");
+      const contactStatus = document.getElementById("contactStatus");
+
+      if (contactForm && contactSubmit && contactStatus) {
+        contactForm.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(contactForm);
+          const payload = {
+            nombre: (formData.get("nombre") || "").toString().trim(),
+            email: (formData.get("email") || "").toString().trim(),
+            telefono: (formData.get("telefono") || "").toString().trim(),
+            objetivo: (formData.get("objetivo") || "").toString().trim(),
+            mensaje: (formData.get("mensaje") || "").toString().trim(),
+            website: (formData.get("website") || "").toString().trim()
+          };
+
+          if (!payload.nombre || !payload.email || !payload.objetivo || !payload.mensaje) {
+            contactStatus.textContent = "Completa los campos obligatorios para enviar el formulario.";
+            contactStatus.className = "contact-status error";
+            return;
+          }
+
+          contactSubmit.disabled = true;
+          contactSubmit.textContent = "Enviando...";
+          contactStatus.textContent = "";
+          contactStatus.className = "contact-status";
+
+          try {
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json().catch(function () {
+              return { message: "No se pudo procesar la respuesta del servidor." };
+            });
+
+            if (!response.ok) {
+              throw new Error(result.message || "No se pudo enviar el formulario.");
+            }
+
+            contactForm.reset();
+            contactStatus.textContent = result.message || "Formulario enviado correctamente.";
+            contactStatus.className = "contact-status ok";
+          } catch (error) {
+            const serverDown = error instanceof TypeError;
+            contactStatus.textContent = serverDown
+              ? "No hay conexion con el servidor. Arranca la web con npm start y abre http://localhost:3000."
+              : (error.message || "Error al enviar. Intentalo de nuevo en unos minutos.");
+            contactStatus.className = "contact-status error";
+          } finally {
+            contactSubmit.disabled = false;
+            contactSubmit.textContent = "Enviar formulario";
+          }
+        });
+      }
+
+      const revealTargets = [
+        ...document.querySelectorAll("main > section"),
+        ...document.querySelectorAll(".strip div"),
+        ...document.querySelectorAll(".cards .card"),
+        ...document.querySelectorAll(".reviews .review"),
+        ...document.querySelectorAll(".info-list li")
+      ];
+
+      revealTargets.forEach(function (el, index) {
+        el.classList.add("reveal");
+        if (index % 3 === 1) el.classList.add("reveal-delay-1");
+        if (index % 3 === 2) el.classList.add("reveal-delay-2");
+      });
+
+      if (!("IntersectionObserver" in window)) {
+        revealTargets.forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            } else {
+              entry.target.classList.remove("is-visible");
+            }
+          });
+        },
+        {
+          threshold: 0.14,
+          rootMargin: "0px 0px -6% 0px"
+        }
+      );
+
+      revealTargets.forEach(function (el) {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

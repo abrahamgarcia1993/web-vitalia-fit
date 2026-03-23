@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recomendaciones de Movilidad para Personas Sedentarias | Málaga</title>
+  <meta name="description" content="Rutinas de movilidad para trabajar horas sentado. Estiramientos, ejercicios y hábitos que previenen dolor de espalda.">
+  <meta name="keywords" content="movilidad, sedentarismo, estiramientos, espalda, Málaga, oficina">
+  <meta name="author" content="Vitalia Fit">
+  <meta property="og:title" content="Movilidad para Personas Sedentarias">
+  <meta property="og:description" content="Cómo prevenir dolor y mejorar movilidad trabajando desde escritorio.">
+  <meta property="og:type" content="article">
+  <style>
+    :root {
+      --bg: #090b10;
+      --text: #f1f4fa;
+      --text-soft: #b2bdd0;
+      --accent: #00d084;
+      --accent-2: #ff8a26;
+      --danger: #ff5b5b;
+      --line: #2c364d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 500px at 80% -12%, rgba(0, 208, 132, 0.12), transparent 60%),
+        radial-gradient(900px 420px at 0% 0%, rgba(255, 138, 38, 0.1), transparent 58%),
+        var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(18, 23, 35, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    
+    header {
+      background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(255, 138, 38, 0.1));
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    header p {
+      font-size: 1.1em;
+      color: var(--text-soft);
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .intro {
+      background: rgba(0, 208, 132, 0.08);
+      padding: 25px;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 40px;
+      border-radius: 5px;
+      border: 1px solid var(--line);
+    }
+    
+    .intro p {
+      font-size: 1.05em;
+      color: var(--text-soft);
+    }
+    
+    h2 {
+      color: var(--accent);
+      margin-top: 35px;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      border-bottom: 3px solid var(--accent-2);
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      color: var(--accent-2);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    
+    .section {
+      margin-bottom: 35px;
+    }
+    
+    .section p {
+      margin-bottom: 12px;
+      color: var(--text-soft);
+      text-align: justify;
+    }
+    
+    .tips-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .tips-list li {
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      background: rgba(22, 28, 41, 0.8);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      transition: transform 0.2s;
+      border: 1px solid var(--line);
+      color: var(--text-soft);
+    }
+    
+    .tips-list li:hover {
+      transform: translateX(5px);
+      background: rgba(22, 28, 41, 0.95);
+      border-left-color: var(--accent-2);
+    }
+    
+    .tips-list strong {
+      color: var(--accent);
+    }
+    
+    .highlight {
+      background: rgba(255, 138, 38, 0.12);
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border-left: 4px solid var(--accent-2);
+      border: 1px solid rgba(255, 138, 38, 0.35);
+      color: #ffd8b8;
+    }
+    
+    .success {
+      background: rgba(0, 208, 132, 0.12);
+      border-left: 4px solid var(--accent);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 208, 132, 0.35);
+      color: #8ff8cb;
+    }
+    
+    .warning {
+      background: rgba(255, 91, 91, 0.12);
+      border-left: 4px solid var(--danger);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 91, 91, 0.35);
+      color: #ff9e9e;
+    }
+    
+    .exercise-box {
+      background: rgba(22, 28, 41, 0.6);
+      border: 1px solid var(--line);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    
+    .exercise-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    footer {
+      background: rgba(22, 28, 41, 0.8);
+      padding: 30px;
+      text-align: center;
+      color: var(--text-soft);
+      border-top: 1px solid var(--line);
+      font-size: 0.9em;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back-link:hover {
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="../paginadesalud.html" class="back-link">← Volver a inicio</a>
+      <h1>🧘 Movilidad para Personas Sedentarias</h1>
+      <p>Rutinas para contrarrestar las horas de escritorio y prevenir dolor de espalda</p>
+    </header>
+    
+    <div class="content">
+      <div class="intro">
+        <p>
+          Si trabajas 8+ horas sentado, tu cuerpo sufre: espalda rígida, caderas apretadas, hombros elevados, cuello tenso. 
+          Esta guía te muestra rutinas simples que puedes hacer en la oficina o en casa para restaurar movilidad y prevenir dolor crónico.
+        </p>
+      </div>
+      
+      <div class="section">
+        <h2>1. Por Qué la Movilidad es Crítica para Sedentarios</h2>
+        <p>
+          Sentarse 8 horas diarias acorta tus músculos, debilita tu core y afecta tu postura. 
+          Las consecuencias: dolor de espalda, problemas de cadera, lesiones futuras.
+        </p>
+        
+        <h3>Problemas comunes por sedentarismo:</h3>
+        <ul class="tips-list">
+          <li><strong>Flexores de cadera apretados:</strong> Causa dolor de espalda baja y postura anterior.</li>
+          <li><strong>Espalda baja débil:</strong> Sin activación, el core no estabiliza tu columna.</li>
+          <li><strong>Hombros elevados:</strong> Tensión en cuello y hombros por mala postura.</li>
+          <li><strong>Glúteos inhibidos:</strong> Pasan de "dormir" por falta de activación.</li>
+          <li><strong>Movilidad vertebral limitada:</strong> Sientes rigidez general en espalda.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>2. Rutina de Movilidad Matutina (5 minutos)</h2>
+        <p>
+          Antes de sentarte, activa y prepara tu cuerpo. Mejor que café para la energía.
+        </p>
+        
+        <div class="exercise-box">
+          <strong>1. Cat-Cow (Gato-Vaca)</strong>
+          Arrodillate, alterna flexión y extensión de espalda. 10 repeticiones. Despierta tu columna.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>2. Rotaciones de tronco</strong>
+          De pie, gira el tronco manteniendo caderas fijas. 8 reps cada lado. Desbloquea rotación.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>3. Estiramiento de flexores de cadera</strong>
+          Lunges bajos, estira la parte frontal del muslo. 20 segundos cada lado. Abre caderas.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>4. Círculos de brazos</strong>
+          Brazos extendidos, círculos hacia adelante y atrás. 8 reps cada dirección. Mobiliza hombros.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>5. Squat profundo (Goblet squat)</strong>
+          Peso en talones, baja en sentadilla profunda. 8 reps. Abre cadera y tobillos.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>3. Rutina de Intervención de Oficina (Cada 90 minutos)</h2>
+        <p>
+          Cada 1.5 horas, levántate y haz esto (2 minutos). Previene rigidez acumulativa.
+        </p>
+        
+        <div class="exercise-box">
+          <strong>Cuello: Rotaciones y flexión lateral</strong>
+          10 rotaciones lentas cada dirección + 5 flexiones laterales. Libera tensión cervical.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Hombros: Shrugs (encogidas) y rotaciones</strong>
+          10 encogidas lentasx + 8 rotaciones hacia atrás. Descomprime hombros.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Espalda: Extensión torácica</strong>
+          Brazos cruzados en pecho, arquea hacia atrás lentamente. 8 reps. Abre pecho.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Caderas: Estiramiento de piriformis (sentado)</strong>
+          Pie sobre rodilla opuesta, flexiona hacia adelante. 20 segundos cada lado. Desbloquea cadera.
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Pararse y activar glúteos</strong>
+          20 sentadillas rápidas o marcha en el sitio 30 segundos. Reactiva tren inferior.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>4. Rutina Vespertina Completa (10 minutos)</h2>
+        <p>
+          Al salir de la oficina o antes de dormir. Compensa las horas de asiento.
+        </p>
+        
+        <h3>Secuencia recomendada:</h3>
+        <ul class="tips-list">
+          <li><strong>Calentamiento (2 min):</strong> Camina oscilando brazos, giros suaves de torso.</li>
+          <li><strong>Estiramientos dinámicos (4 min):</strong> Lunges caminados, rotaciones, circles de cadera.</li>
+          <li><strong>Estiramientos estáticos (4 min):</strong> Piriformis, isquiotibiales, flexores, pecho y hombros.</li>
+        </ul>
+        
+        <h3>Orden específico:</h3>
+        <div class="exercise-box">
+          <strong>Minutos 0-2: Dinámico</strong>
+          Camina + giros + leg swings (balanceo de piernas)
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Minutos 2-6: Estiramientos estáticos</strong>
+          Cualidad profunda (30s) → Isquiotibiales (30s) → Flexores (30s) → Piriformis (30s) → Pecho/hombros (30s) cada lado
+        </div>
+        
+        <div class="exercise-box">
+          <strong>Minutos 6-10: Respiración y relajación</strong>
+          Acuéstate boca arriba, piernas en silla, respira profundamente 2 min. Relaja todo.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>5. Ejercicios de Activación para Debilidades Comunes</h2>
+        <p>
+          Haz estos si tienes dolor específico. Incluye en tu rutina 3 veces por semana.
+        </p>
+        
+        <h3>Para dolor de espalda baja:</h3>
+        <ul class="tips-list">
+          <li><strong>Bird-Dogs:</strong> A gatas, extiende brazo opuesto y pierna. 8 reps cada lado, 3 series.</li>
+          <li><strong>Plancha (modificada):</strong> Apoyo en rodillas o manos, mantén 20-30 segundos. 3 series.</li>
+          <li><strong>Glute bridges:</strong> Acostado boca arriba, empuja caderas hacia arriba. 12 reps, 3 series.</li>
+        </ul>
+        
+        <h3>Para rigidez de caderas:</h3>
+        <ul class="tips-list">
+          <li><strong>Deep bodyweight squats:</strong> Baja lo máximo que puedas. 10 reps, 3 series.</li>
+          <li><strong>90/90 stretch:</strong> Sentado, una pierna 90° adelante, otra atrás. 30s cada lado.</li>
+          <li><strong>Leg swings:</strong> De pie, balancea pierna adelante-atrás. 10 reps cada lado, 3 series.</li>
+        </ul>
+        
+        <h3>Para tensión de hombros:</h3>
+        <ul class="tips-list">
+          <li><strong>Band pull-aparts:</strong> Banda de resistencia, tira hacia pecho. 12 reps, 3 series.</li>
+          <li><strong>Reverse flyes:</strong> Mancernas o bandas, abre brazos. 10 reps, 3 series.</li>
+          <li><strong>Thoracic rotations:</strong> Giros de espalda media en posición de gatas. 8 cada lado, 3 series.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>6. Hábitos de Postura en la Oficina</h2>
+        <p>
+          Movilidad sin postura correcta es un parche. Arregla cómo te sientas.
+        </p>
+        
+        <ul class="tips-list">
+          <li><strong>Monitor a la altura de los ojos:</strong> Evita miraca hacia abajo.</li>
+          <li><strong>Codos en ángulo 90°:</strong> Apoyo en silla, no tensión en hombros.</li>
+          <li><strong>Espalda recta:</strong> Reclinatorio pequeño si es necesario.</li>
+          <li><strong>Pies en el suelo:</strong> No cruzados. Estabilidad total.</li>
+          <li><strong>Levántate cada 45-60 minutos:</strong> Al menos 2 minutos caminando.</li>
+        </ul>
+        
+        <div class="highlight">
+          <strong>💡 Pro tip:</strong> Usa alarmas en el teléfono (cada 90 min) para recordarte levantarte. 
+          Con el tiempo es automático.
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>7. Errores Comunes en Movilidad</h2>
+        <p>
+          Evita estos errores que anulan el trabajo.
+        </p>
+        
+        <ul class="tips-list">
+          <li><strong>Estiramientos bruscos:</strong> Estira lentamente, sin rebotar. Causa lesiones.</li>
+          <li><strong>No calentar antes de estirar dinamicamente:</strong> Siempre movimiento suave primero.</li>
+          <li><strong>Ignorar el dolor agudo:</strong> Si duele (no escozor), para. Consulta profesional.</li>
+          <li><strong>Movilidad sin fuerza:</strong> Necesitas ambas. Movilidad + ejercicios de activación.</li>
+          <li><strong>Inconsistencia:</strong> 1 día de movilidad vs 7 sedentarios no funciona. Hazlo diario.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Tu Plan Semanal de Movilidad</h2>
+        <p>
+          Resumen simple de lo que debes hacer cada día.
+        </p>
+        
+        <div class="success">
+          <strong>✓ Rutina mínima diaria (12 minutos total):</strong><br>
+          • Mañana (5 min): Cat-cow, rotaciones, lunges, circles, squat<br>
+          • Oficina (2 min cada 90 min): Cuello, hombros, espalda, cadera, glúteos<br>
+          • Tarde (10 min): Rutina completa de estiramientos<br>
+          <br>
+          <strong>+ 3x semana (adicional 15 min):</strong><br>
+          Ejercicios de activación (Bird-dogs, plancha, glute bridges, squats)
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>Conclusión: Movimiento es Medicina</h2>
+        <p>
+          El cuerpo se adapta a lo que haces. Si pasas 8 horas sentado, se adapta a eso. 
+          Movilidad consistente revierte ese daño y previene problemas futuros.
+        </p>
+        
+        <div class="highlight">
+          <strong>🎯 Empieza HOY con esto:</strong><br>
+          1. Rutina matutina de 5 minutos<br>
+          2. Pausa cada 90 minutos (2 minutos)<br>
+          3. Rutina vespertina de 10 minutos<br>
+          4. Hazlo durante 2 semanas<br>
+          5. Notarás cambios: menos dolor, más flexibilidad, mejor postura
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p><strong>Nota:</strong> Si tienes dolor crónico o lesión preexistente, consulta fisioterapeuta antes de comenzar.</p>
+      <p>© 2026 - Vitalia Fit | Guía para Málaga y alrededores | Creado con ❤️ para tu bienestar</p>
+    </footer>
+  </div>
+</body>
+</html>
