@@ -1,8 +1,19 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/paginadesalud.html"
+      "src": "^/$",
+      "dest": "/paginadesalud.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/api/[...all].js"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/api/[...all].js"
     }
   ]
 }
