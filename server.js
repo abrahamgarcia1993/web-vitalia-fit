@@ -8,6 +8,7 @@ const { Pool } = require("pg");
 
 const app = express();
 const IS_VERCEL = process.env.VERCEL === "1";
+const ROOT_DIR = IS_VERCEL ? process.cwd() : __dirname;
 const PORT = Number(process.env.PORT || 3000);
 const DATABASE_URL = String(process.env.DATABASE_URL || "").trim();
 const USE_DATABASE = DATABASE_URL.length > 0;
@@ -15,7 +16,7 @@ const ADMIN_KEY = String(process.env.ADMIN_KEY || "").trim();
 const ADMIN_ALLOW_REMOTE = String(process.env.ADMIN_ALLOW_REMOTE || (IS_VERCEL ? "true" : "false")).toLowerCase() === "true";
 const ADMIN_MAX_ATTEMPTS = Number(process.env.ADMIN_MAX_ATTEMPTS || 5);
 const ADMIN_LOCK_MINUTES = Number(process.env.ADMIN_LOCK_MINUTES || 10);
-const STATIC_DATA_DIR = path.join(__dirname, "data");
+const STATIC_DATA_DIR = path.join(ROOT_DIR, "data");
 const DATA_DIR = IS_VERCEL ? path.join("/tmp", "vitalia-data") : STATIC_DATA_DIR;
 const APPOINTMENTS_FILE = path.join(DATA_DIR, "appointments.json");
 const OFF_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
@@ -31,7 +32,7 @@ const dbPool = USE_DATABASE
 
 app.use(express.json({ limit: "200kb" }));
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname));
+app.use(express.static(ROOT_DIR));
 
 function escapeHtml(value) {
   return String(value)
@@ -952,7 +953,7 @@ app.delete("/api/admin/appointments/:id", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "paginadesalud.html"));
+  res.sendFile(path.join(ROOT_DIR, "paginadesalud.html"));
 });
 
 if (process.env.VERCEL !== "1") {
