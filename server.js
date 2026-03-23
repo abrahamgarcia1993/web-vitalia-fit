@@ -4,10 +4,13 @@ const fs = require("fs");
 const path = require("path");
 const express = require("express");
 const nodemailer = require("nodemailer");
+const { Pool } = require("pg");
 
 const app = express();
 const IS_VERCEL = process.env.VERCEL === "1";
 const PORT = Number(process.env.PORT || 3000);
+const DATABASE_URL = String(process.env.DATABASE_URL || "").trim();
+const USE_DATABASE = DATABASE_URL.length > 0;
 const ADMIN_KEY = String(process.env.ADMIN_KEY || "").trim();
 const ADMIN_ALLOW_REMOTE = String(process.env.ADMIN_ALLOW_REMOTE || (IS_VERCEL ? "true" : "false")).toLowerCase() === "true";
 const ADMIN_MAX_ATTEMPTS = Number(process.env.ADMIN_MAX_ATTEMPTS || 5);
@@ -17,6 +20,14 @@ const DATA_DIR = IS_VERCEL ? path.join("/tmp", "vitalia-data") : STATIC_DATA_DIR
 const APPOINTMENTS_FILE = path.join(DATA_DIR, "appointments.json");
 const OFF_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
 const adminAttemptTracker = new Map();
+const SHOULD_USE_SSL = USE_DATABASE && !/localhost|127\.0\.0\.1/i.test(DATABASE_URL);
+
+const dbPool = USE_DATABASE
+  ? new Pool({
+      connectionString: DATABASE_URL,
+      ssl: SHOULD_USE_SSL ? { rejectUnauthorized: false } : false
+    })
+  : null;
 
 app.use(express.json({ limit: "200kb" }));
 app.use(express.urlencoded({ extended: false }));
@@ -68,6 +79,26 @@ function getMailSettings() {
 }
 
 async function ensureAppointmentsStore() {
+  if (USE_DATABASE) {
+    await dbPool.query(`
+      CREATE TABLE IF NOT EXISTS appointments (
+        id TEXT PRIMARY KEY,
+        nombre TEXT NOT NULL,
+        email TEXT NOT NULL,
+        telefono TEXT NOT NULL,
+        fecha TEXT NOT NULL,
+        hora TEXT NOT NULL,
+        mensaje TEXT NOT NULL,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      )
+    `);
+
+    await dbPool.query(
+      `CREATE UNIQUE INDEX IF NOT EXISTS appointments_fecha_hora_idx ON appointments (fecha, hora)`
+    );
+    return;
+  }
+
   await fs.promises.mkdir(DATA_DIR, { recursive: true });
 
   try {
@@ -84,6 +115,19 @@ async function ensureAppointmentsStore() {
   }
 }
 
+function mapDbAppointment(row) {
+  return {
+    id: row.id,
+    nombre: row.nombre,
+    email: row.email,
+    telefono: row.telefono,
+    fecha: row.fecha,
+    hora: row.hora,
+    mensaje: row.mensaje,
+    createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : new Date(row.created_at).toISOString()
+  };
+}
+
 async function loadLocalFoodsDatabase() {
   const FOODS_DB_FILE = path.join(STATIC_DATA_DIR, "foods-database.json");
   try {
@@ -98,6 +142,17 @@ async function loadLocalFoodsDatabase() {
 
 async function readAppointments() {
   await ensureAppointmentsStore();
+
+  if (USE_DATABASE) {
+    const result = await dbPool.query(
+      `SELECT id, nombre, email, telefono, fecha, hora, mensaje, created_at
+       FROM appointments
+       ORDER BY fecha ASC, hora ASC, created_at ASC`
+    );
+
+    return result.rows.map(mapDbAppointment);
+  }
+
   const raw = await fs.promises.readFile(APPOINTMENTS_FILE, "utf8");
 
   try {
@@ -109,8 +164,71 @@ async function readAppointments() {
 }
 
 async function writeAppointments(appointments) {
+  if (USE_DATABASE) {
+    throw new Error("writeAppointments no se usa en modo base de datos.");
+  }
+
   await ensureAppointmentsStore();
   await fs.promises.writeFile(APPOINTMENTS_FILE, JSON.stringify(appointments, null, 2), "utf8");
+}
+
+async function createAppointment(booking) {
+  await ensureAppointmentsStore();
+
+  if (USE_DATABASE) {
+    const result = await dbPool.query(
+      `INSERT INTO appointments (id, nombre, email, telefono, fecha, hora, mensaje, created_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+       RETURNING id, nombre, email, telefono, fecha, hora, mensaje, created_at`,
+      [
+        booking.id,
+        booking.nombre,
+        booking.email,
+        booking.telefono,
+        booking.fecha,
+        booking.hora,
+        booking.mensaje,
+        booking.createdAt
+      ]
+    );
+
+    return mapDbAppointment(result.rows[0]);
+  }
+
+  const appointments = await readAppointments();
+  appointments.push(booking);
+  await writeAppointments(appointments);
+  return booking;
+}
+
+async function removeAppointmentById(id) {
+  await ensureAppointmentsStore();
+
+  if (USE_DATABASE) {
+    const result = await dbPool.query(
+      `DELETE FROM appointments
+       WHERE id = $1
+       RETURNING id, nombre, email, telefono, fecha, hora, mensaje, created_at`,
+      [id]
+    );
+
+    if (!result.rows[0]) {
+      return null;
+    }
+
+    return mapDbAppointment(result.rows[0]);
+  }
+
+  const appointments = await readAppointments();
+  const index = appointments.findIndex((item) => item.id === id);
+
+  if (index === -1) {
+    return null;
+  }
+
+  const [removed] = appointments.splice(index, 1);
+  await writeAppointments(appointments);
+  return removed;
 }
 
 function isValidDate(date) {
@@ -713,8 +831,20 @@ app.post("/api/appointments", async (req, res) => {
 
   try {
     const mailSettings = getMailSettings();
-    const appointments = await readAppointments();
-    const exists = appointments.some((item) => item.fecha === fecha && item.hora === hora);
+
+    let exists = false;
+    if (USE_DATABASE) {
+      await ensureAppointmentsStore();
+      const checkResult = await dbPool.query(
+        `SELECT 1 FROM appointments WHERE fecha = $1 AND hora = $2 LIMIT 1`,
+        [fecha, hora]
+      );
+      exists = checkResult.rowCount > 0;
+    } else {
+      const appointments = await readAppointments();
+      exists = appointments.some((item) => item.fecha === fecha && item.hora === hora);
+    }
+
     if (exists) {
       return res.status(409).json({ message: "Ese horario ya ha sido reservado." });
     }
@@ -730,8 +860,7 @@ app.post("/api/appointments", async (req, res) => {
       createdAt: new Date().toISOString()
     };
 
-    appointments.push(booking);
-    await writeAppointments(appointments);
+    const storedBooking = await createAppointment(booking);
 
     const safeNombre = escapeHtml(nombre);
     const safeEmail = escapeHtml(email);
@@ -763,12 +892,12 @@ app.post("/api/appointments", async (req, res) => {
           `<p><strong>Hora:</strong> ${safeHora}</p>` +
           `<p><strong>Mensaje:</strong><br>${safeMensaje}</p>`
       });
-      return res.status(201).json({ message: "Cita reservada correctamente.", booking });
+      return res.status(201).json({ message: "Cita reservada correctamente.", booking: storedBooking });
     }
 
     return res.status(201).json({
       message: "Cita reservada correctamente (sin notificacion por email).",
-      booking
+      booking: storedBooking
     });
   } catch (error) {
     console.error("Error guardando cita:", error);
@@ -806,15 +935,11 @@ app.delete("/api/admin/appointments/:id", async (req, res) => {
   }
 
   try {
-    const appointments = await readAppointments();
-    const index = appointments.findIndex((item) => item.id === id);
+    const removed = await removeAppointmentById(id);
 
-    if (index === -1) {
+    if (!removed) {
       return res.status(404).json({ message: "La cita no existe o ya fue cancelada." });
     }
-
-    const [removed] = appointments.splice(index, 1);
-    await writeAppointments(appointments);
 
     return res.status(200).json({
       message: "Cita cancelada correctamente.",
