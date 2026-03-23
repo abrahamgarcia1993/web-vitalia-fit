@@ -22,6 +22,14 @@ const APPOINTMENTS_FILE = path.join(DATA_DIR, "appointments.json");
 const OFF_BASE_URL = "https://world.openfoodfacts.org/cgi/search.pl";
 const adminAttemptTracker = new Map();
 const SHOULD_USE_SSL = USE_DATABASE && !/localhost|127\.0\.0\.1/i.test(DATABASE_URL);
+const STATIC_ROOT_CANDIDATES = Array.from(
+  new Set([
+    ROOT_DIR,
+    __dirname,
+    process.cwd(),
+    path.resolve(process.cwd(), "..")
+  ])
+);
 
 const dbPool = USE_DATABASE
   ? new Pool({
@@ -33,6 +41,25 @@ const dbPool = USE_DATABASE
 app.use(express.json({ limit: "200kb" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(ROOT_DIR));
+
+function resolvePublicFile(relativePath) {
+  const cleaned = String(relativePath || "")
+    .replace(/^\/+/, "")
+    .replace(/\\/g, "/");
+
+  if (!cleaned || cleaned.includes("..")) {
+    return null;
+  }
+
+  for (const base of STATIC_ROOT_CANDIDATES) {
+    const candidate = path.join(base, cleaned);
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -953,7 +980,19 @@ app.delete("/api/admin/appointments/:id", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(ROOT_DIR, "paginadesalud.html"));
+  const indexFile = resolvePublicFile("paginadesalud.html");
+  if (!indexFile) {
+    return res.status(404).send("No se encontro la portada.");
+  }
+  res.sendFile(indexFile);
+});
+
+app.get("*.html", (req, res) => {
+  const file = resolvePublicFile(req.path);
+  if (!file) {
+    return res.status(404).send("Pagina no encontrada.");
+  }
+  res.sendFile(file);
 });
 
 if (process.env.VERCEL !== "1") {
